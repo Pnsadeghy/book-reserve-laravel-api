@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Traits\VisibleTrait;
+use App\Traits\VisibleModelTrait;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    use HasFactory, HasUuids, VisibleTrait;
+    use HasFactory, HasUuids, VisibleModelTrait;
 
     protected $fillable = [
         'title',

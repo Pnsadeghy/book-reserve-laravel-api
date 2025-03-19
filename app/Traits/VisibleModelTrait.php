@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
-trait VisibleTrait
+trait VisibleModelTrait
 {
     public function scopeVisible(Builder $query): Builder
     {

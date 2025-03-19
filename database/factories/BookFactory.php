@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Traits\VisibleFactoryTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BookFactory extends Factory
 {
+    use VisibleFactoryTrait;
+
     /**
      * Define the model's default state.
      *
@@ -19,16 +22,6 @@ class BookFactory extends Factory
         return [
             'title' => $this->faker->unique()->words(1, true),
             'description' => $this->faker->unique()->words(2, true),
-            'visible' => true,
         ];
-    }
-
-    public function unvisible(): self
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'visible' => false,
-            ];
-        });
     }
 }
