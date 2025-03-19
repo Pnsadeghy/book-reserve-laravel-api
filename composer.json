@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "knuckleswtf/scribe": "^5.1",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
     },
@@ -59,6 +60,9 @@
             "php artisan key:generate",
             "php artisan config:cache",
             "php artisan migrate --seed"
+        ],
+        "doc": [
+            "php artisan scribe:generate"
         ]
     },
     "extra": {
