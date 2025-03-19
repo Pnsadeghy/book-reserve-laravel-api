@@ -22,9 +22,9 @@ class CommonIndexRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "q" => "nullable|string",
-            "per_page" => "nullable|integer|min:1",
-            "page" => "nullable|integer|min:1"
+            'q' => 'nullable|string',
+            'per_page' => 'nullable|integer|min:1',
+            'page' => 'nullable|integer|min:1',
         ];
     }
 }

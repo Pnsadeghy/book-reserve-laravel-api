@@ -19,10 +19,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
  */
 class BooksController extends Controller
 {
-    public function __construct(protected IBookRepository $repository)
-    {
-
-    }
+    public function __construct(protected IBookRepository $repository) {}
 
     /**
      * All books
@@ -40,7 +37,7 @@ class BooksController extends Controller
                 ->visible()
                 ->search($request->string('q'))
                 ->paginate([
-                    "id", "title", "description", "is_visible", "created_at"
+                    'id', 'title', 'description', 'is_visible', 'created_at',
                 ])
         );
     }
@@ -52,7 +49,7 @@ class BooksController extends Controller
      */
     public function show(Book $book): JsonResponse
     {
-        #TODO Complete: User Book resource show api
+        // TODO Complete: User Book resource show api
         return response()->json($book);
     }
 }

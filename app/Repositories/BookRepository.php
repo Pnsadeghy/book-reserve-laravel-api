@@ -13,12 +13,13 @@ class BookRepository extends ResourceRepository implements IBookRepository
     public function __construct()
     {
         parent::__construct();
-        $this->stringSearchFilters = ["title", "description"];
+        $this->stringSearchFilters = ['title', 'description'];
     }
 
     public function visible(): IBookRepository
     {
         $this->model = $this->model->visible();
+
         return $this;
     }
 }

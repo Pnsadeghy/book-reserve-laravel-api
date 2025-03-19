@@ -20,11 +20,9 @@ use Illuminate\Http\Response;
  *
  * API endpoints for managing books
  */
-class BooksController extends Controller {
-    public function __construct(protected IBookRepository $repository)
-    {
-
-    }
+class BooksController extends Controller
+{
+    public function __construct(protected IBookRepository $repository) {}
 
     /**
      * All books
@@ -41,7 +39,7 @@ class BooksController extends Controller {
             $this->repository
                 ->search($request->string('q'))
                 ->paginate([
-                    "id", "title", "description", "is_visible", "created_at"
+                    'id', 'title', 'description', 'is_visible', 'created_at',
                 ])
         );
     }
@@ -51,7 +49,7 @@ class BooksController extends Controller {
      */
     public function store(AdminBookStoreRequest $request): JsonResponse
     {
-        #TODO Complete: Book store action + api doc
+        // TODO Complete: Book store action + api doc
         return response()->json([], 201);
     }
 
@@ -60,7 +58,7 @@ class BooksController extends Controller {
      */
     public function show(Book $book): JsonResponse
     {
-        #TODO Complete: Book show action + api doc
+        // TODO Complete: Book show action + api doc
         return response()->json([]);
     }
 
@@ -69,7 +67,7 @@ class BooksController extends Controller {
      */
     public function update(AdminBookUpdateRequest $request, Book $book): JsonResponse
     {
-        #TODO Complete: Book update action + api doc
+        // TODO Complete: Book update action + api doc
         return response()->json([]);
     }
 
@@ -78,7 +76,7 @@ class BooksController extends Controller {
      */
     public function destroy(Book $book): Response
     {
-        #TODO Complete: Book destroy action + api doc
+        // TODO Complete: Book destroy action + api doc
         return response()->noContent();
     }
 }

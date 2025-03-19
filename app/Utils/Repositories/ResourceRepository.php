@@ -59,6 +59,7 @@ class ResourceRepository implements IResourceRepository
         if ($perPage === null) {
             $perPage = config('pagination.per_page');
         }
+
         return $this->model
             ->orderBy($sortBy, $sortDesc ? 'desc' : 'asc')
             ->paginate($perPage, $columns, $pageName, $page);
