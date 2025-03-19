@@ -11,7 +11,7 @@ class AdminBookStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class AdminBookStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|unique:books,title',
+            'description' => 'nullable|string',
+            'visible' => 'boolean',
         ];
     }
 }

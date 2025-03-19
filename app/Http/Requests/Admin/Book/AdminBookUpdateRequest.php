@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Book;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class AdminBookUpdateRequest extends FormRequest
 {
@@ -21,8 +22,14 @@ class AdminBookUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('book')->id ?? null;
         return [
-            //
+            'title' => [
+                "required", "string",
+                Rule::unique("books", "name")->ignore($id)
+            ],
+            'description' => 'nullable|string',
+            'visible' => 'boolean',
         ];
     }
 }
