@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Admin\BookCopy;
 
+use App\Enums\BookCopyConditionEnum;
+use App\Enums\BookCopyStatusEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class AdminBookCopyStoreRequest extends FormRequest
 {
@@ -11,7 +14,7 @@ class AdminBookCopyStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +24,17 @@ class AdminBookCopyStoreRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('book')->id ?? null;
+
         return [
-            //
+            'title' => [
+                'required', 'string',
+                Rule::unique('book_copies', 'name')->where('book_id', $id),
+            ],
+            'visible' => 'required|boolean',
+            'branch_id' => 'required|uuid|exists:branches,id',
+            'status' => ['required', Rule::in(BookCopyStatusEnum::availableValues())],
+            'conditions' => ['required', Rule::in(BookCopyConditionEnum::values())],
         ];
     }
 }

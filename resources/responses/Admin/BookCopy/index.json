@@ -1,0 +1,12 @@
+[
+    {
+        "id": "uuid",
+        "title": "Title",
+        "visible": true,
+        "branch_id": "Branch ID",
+        "status": "available",
+        "confition": "good",
+        "created_at": "date",
+        "updated_at": "date"
+    }
+]

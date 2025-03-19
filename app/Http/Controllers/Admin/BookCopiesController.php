@@ -43,6 +43,7 @@ class BookCopiesController extends Controller
      * @bodyParam status required values: available,under_repair,lost
      * @bodyParam condition required values: good,worn,damaged
      * @bodyParam branch_id required
+     * @bodyParam visible required boolean
      *
      * @responseFile 201 resources/responses/Admin/BookCopy/store.json
      */
@@ -73,6 +74,7 @@ class BookCopiesController extends Controller
      * @bodyParam condition values: good,worn,damaged - Only when the copy is not reserved
      * @bodyParam status values: available,under_repair,lost
      * @bodyParam branch_id Only when the copy is not reserved
+     * @bodyParam visible boolean
      *
      * @response 200
      */

@@ -18,7 +18,6 @@ enum BookCopyStatusEnum
     {
         return [
             self::Available,
-            self::Transferred,
             self::UnderRepair,
             self::Lost,
         ];

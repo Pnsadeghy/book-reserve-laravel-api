@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Book;
+use App\Models\BookCopy;
 use App\Models\Scopes\VisibleScope;
 use Closure;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class ApplyVisibleMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         Book::addGlobalScope(VisibleScope::class);
+        BookCopy::addGlobalScope(VisibleScope::class);
 
         return $next($request);
     }
