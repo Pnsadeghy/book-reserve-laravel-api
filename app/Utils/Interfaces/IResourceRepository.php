@@ -13,10 +13,10 @@ interface IResourceRepository
     public function withTrashed();
 
     public function paginate(
-        int $perPage,
+        array $columns = ['*'],
+        ?int $perPage = null,
         string $sortBy = 'created_at',
         bool $sortDesc = true,
-        array $columns = ['*'],
         string $pageName = 'page',
         ?int $page = null
     );

@@ -49,13 +49,16 @@ class ResourceRepository implements IResourceRepository
     }
 
     public function paginate(
-        int $perPage,
+        array $columns = ['*'],
+        ?int $perPage = null,
         string $sortBy = 'created_at',
         bool $sortDesc = true,
-        array $columns = ['*'],
         string $pageName = 'page',
         ?int $page = null
     ): Paginator {
+        if ($perPage === null) {
+            $perPage = config('pagination.per_page');
+        }
         return $this->model
             ->orderBy($sortBy, $sortDesc ? 'desc' : 'asc')
             ->paginate($perPage, $columns, $pageName, $page);
