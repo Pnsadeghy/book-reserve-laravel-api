@@ -24,4 +24,5 @@ Route::prefix('admin')
     ->name('admin.')
     ->middleware(['auth:sanctum', 'role:admin'])->group(function () {
         Route::apiResource('books', \App\Http\Controllers\Admin\BooksController::class);
+        Route::apiResource('branches', \App\Http\Controllers\Admin\BranchesController::class);
     });

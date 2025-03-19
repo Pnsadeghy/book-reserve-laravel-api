@@ -72,7 +72,7 @@ class BooksController extends Controller
     }
 
     /**
-     * Show a book
+     * Destroy
      */
     public function destroy(Book $book): Response
     {
