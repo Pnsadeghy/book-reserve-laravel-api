@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Book\AdminBranchStoreRequest;
+use App\Http\Requests\Admin\Book\AdminBranchUpdateRequest;
 use App\Http\Requests\CommonIndexRequest;
 use App\Http\Resources\Admin\Branch\AdminBranchListItemResource;
+use App\Http\Resources\Admin\Branch\AdminBranchResource;
 use App\Interfaces\IBranchRepository;
 use App\Models\Branch;
 use Illuminate\Http\JsonResponse;
@@ -15,6 +18,8 @@ use Illuminate\Http\Response;
  * @group Admin
  *
  * @subgroup Branch
+ *
+ * @authenticated
  *
  * API endpoints for managing branches
  */
@@ -44,37 +49,56 @@ class BranchesController extends Controller
 
     /**
      * Store
+     *
+     * @bodyParam title required
+     * @bodyParam address
+     * @bodyParam visible boolean
+     *
+     * @responseFile 201 resources/responses/Admin/Branch/store.json
      */
-    public function store(): JsonResponse
+    public function store(AdminBranchStoreRequest $request): JsonResponse
     {
-        // TODO Complete: Branch store action + api doc
-        return response()->json([], 201);
+        $model = $this->repository->store($request->validated());
+
+        return response()->json(new AdminBranchResource($model), 201);
     }
 
     /**
      * Show
+     *
+     * @responseFile 200 resources/responses/Admin/Branch/show.json
      */
     public function show(Branch $branch): JsonResponse
     {
-        // TODO Complete: Branch show action + api doc
-        return response()->json([]);
+        return response()->json(new AdminBranchResource($branch));
     }
 
     /**
      * Update
+     *
+     * @bodyParam title required
+     * @bodyParam address
+     * @bodyParam visible boolean
+     *
+     * @response 200
      */
-    public function update(Branch $branch): JsonResponse
+    public function update(AdminBranchUpdateRequest $request, Branch $branch): JsonResponse
     {
-        // TODO Complete: Branch update action + api doc
-        return response()->json([]);
+        $this->repository->update($branch, $request->validated());
+
+        return response()->json();
     }
 
     /**
      * Destroy
+     *
+     * @response 204
      */
     public function destroy(Branch $branch): Response
     {
-        // TODO Complete: Branch destroy action + api doc
+        // TODO stop action if there is any reservation
+        $this->repository->delete($branch);
+
         return response()->noContent();
     }
 }
