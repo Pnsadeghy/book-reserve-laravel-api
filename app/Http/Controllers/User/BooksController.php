@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommonIndexRequest;
 use App\Http\Resources\User\Book\UserBookListItemResource;
+use App\Http\Resources\User\Book\UserBookShowResource;
 use App\Interfaces\IBookRepository;
 use App\Models\Book;
 use Illuminate\Http\JsonResponse;
@@ -14,6 +15,8 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
  * @group User
  *
  * @subgroup Book
+ *
+ * @authenticated
  *
  * API endpoints for get books information
  */
@@ -34,7 +37,6 @@ class BooksController extends Controller
     {
         return UserBookListItemResource::collection(
             $this->repository
-                ->visible()
                 ->search($request->string('q'))
                 ->paginate([
                     'id', 'title', 'description', 'is_visible', 'created_at',
@@ -49,8 +51,8 @@ class BooksController extends Controller
      */
     public function show(Book $book): JsonResponse
     {
-        // TODO Complete: User Book resource show api
-        // Must returns Book copies with their branch
-        return response()->json($book);
+        $book->load(['copies', 'copies.branch']);
+
+        return response()->json(new UserBookShowResource($book));
     }
 }

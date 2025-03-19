@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\User\Book;
+namespace App\Http\Resources\Admin\Book;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserBookShowResource extends JsonResource
+class AdminBookResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,10 @@ class UserBookShowResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'available' => $this->available,
-            'copies' => UserBookCopyShowResource::collection($this->copies),
+            'visible' => $this->is_visible,
+            'available' => $this->is_available,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

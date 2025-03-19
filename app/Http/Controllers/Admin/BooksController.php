@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Book\AdminBookStoreRequest;
-use App\Http\Requests\Admin\Book\AdminBookUpdateRequest;
+use App\Http\Requests\Admin\Book\AdminBranchStoreRequest;
+use App\Http\Requests\Admin\Book\AdminBranchUpdateRequest;
 use App\Http\Requests\CommonIndexRequest;
 use App\Http\Resources\Admin\Book\AdminBookListItemResource;
+use App\Http\Resources\Admin\Book\AdminBookResource;
 use App\Interfaces\IBookRepository;
 use App\Models\Book;
 use Illuminate\Http\JsonResponse;
@@ -17,6 +18,8 @@ use Illuminate\Http\Response;
  * @group Admin
  *
  * @subgroup Book
+ *
+ * @authenticated
  *
  * API endpoints for managing books
  */
@@ -46,37 +49,56 @@ class BooksController extends Controller
 
     /**
      * Store
+     *
+     * @bodyParam title required
+     * @bodyParam description
+     * @bodyParam visible boolean
+     *
+     * @responseFile 201 resources/responses/Admin/Book/store.json
      */
-    public function store(AdminBookStoreRequest $request): JsonResponse
+    public function store(AdminBranchStoreRequest $request): JsonResponse
     {
-        // TODO Complete: Book store action + api doc
-        return response()->json([], 201);
+        $model = $this->repository->store($request->validated());
+
+        return response()->json(new AdminBookResource($model), 201);
     }
 
     /**
      * Show
+     *
+     * @responseFile 200 resources/responses/Admin/Book/show.json
      */
     public function show(Book $book): JsonResponse
     {
-        // TODO Complete: Book show action + api doc
-        return response()->json([]);
+        return response()->json(new AdminBookResource($book));
     }
 
     /**
      * Update
+     *
+     * @bodyParam title required
+     * @bodyParam description
+     * @bodyParam visible boolean
+     *
+     * @response 200
      */
-    public function update(AdminBookUpdateRequest $request, Book $book): JsonResponse
+    public function update(AdminBranchUpdateRequest $request, Book $book): JsonResponse
     {
-        // TODO Complete: Book update action + api doc
-        return response()->json([]);
+        $this->repository->update($book, $request->validated());
+
+        return response()->json();
     }
 
     /**
      * Destroy
+     *
+     * @response 204
      */
     public function destroy(Book $book): Response
     {
-        // TODO Complete: Book destroy action + api doc
+        // TODO stop action if there is any reservation
+        $this->repository->delete($book);
+
         return response()->noContent();
     }
 }

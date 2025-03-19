@@ -1,0 +1,9 @@
+{
+    "id": "uuid",
+    "title": "Title",
+    "description": null,
+    "visible": true,
+    "available": true,
+    "created_at": "date",
+    "updated_at": "date"
+}

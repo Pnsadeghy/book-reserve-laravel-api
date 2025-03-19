@@ -1,0 +1,18 @@
+{
+    "id": "uuid",
+    "title": "Title",
+    "description": "Description",
+    "available": true,
+    "copies": [
+        {
+            "id": "uuid",
+            "title": "Title",
+            "status": "available",
+            "branch": {
+                "id": "uuid",
+                "title": "Title",
+                "address": "Address"
+            }
+        }
+    ]
+}
