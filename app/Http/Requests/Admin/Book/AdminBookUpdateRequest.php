@@ -23,10 +23,11 @@ class AdminBookUpdateRequest extends FormRequest
     public function rules(): array
     {
         $id = $this->route('book')->id ?? null;
+
         return [
             'title' => [
-                "required", "string",
-                Rule::unique("books", "name")->ignore($id)
+                'required', 'string',
+                Rule::unique('books', 'name')->ignore($id),
             ],
             'description' => 'nullable|string',
             'visible' => 'boolean',

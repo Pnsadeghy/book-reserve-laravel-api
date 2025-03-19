@@ -32,10 +32,10 @@ class Book extends Model
         ];
     }
 
-    #region Scopes
+    // region Scopes
     public function scopeAvailable(Builder $query): Builder
     {
         return $query->where('is_available', true);
     }
-    #endregion
+    // endregion
 }

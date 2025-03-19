@@ -20,17 +20,17 @@ class BookIndexTest extends TestCase
 
         Book::factory(5)->create();
         Book::factory(5)->create([
-            'visible' => true
+            'visible' => true,
         ]);
         Book::factory(5)->create([
-            'available' => true
+            'available' => true,
         ]);
 
         $response = $this->getJson($this->url);
 
         $response->assertStatus(200);
 
-        $response->assertJsonCount(5, 'data');
+        $response->assertJsonCount(15, 'data');
 
         $response->assertJsonStructure([
             'data' => [
