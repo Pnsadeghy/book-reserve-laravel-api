@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Book\AdminBranchStoreRequest;
-use App\Http\Requests\Admin\Book\AdminBranchUpdateRequest;
+use App\Http\Requests\Admin\Book\AdminBookStoreRequest;
+use App\Http\Requests\Admin\Book\AdminBookUpdateRequest;
 use App\Http\Requests\CommonIndexRequest;
 use App\Http\Resources\Admin\Book\AdminBookListItemResource;
 use App\Http\Resources\Admin\Book\AdminBookResource;
@@ -52,11 +52,11 @@ class BooksController extends Controller
      *
      * @bodyParam title required
      * @bodyParam description
-     * @bodyParam visible boolean
+     * @bodyParam visible required boolean
      *
      * @responseFile 201 resources/responses/Admin/Book/store.json
      */
-    public function store(AdminBranchStoreRequest $request): JsonResponse
+    public function store(AdminBookStoreRequest $request): JsonResponse
     {
         $model = $this->repository->store($request->validated());
 
@@ -76,13 +76,13 @@ class BooksController extends Controller
     /**
      * Update
      *
-     * @bodyParam title required
+     * @bodyParam title
      * @bodyParam description
      * @bodyParam visible boolean
      *
      * @response 200
      */
-    public function update(AdminBranchUpdateRequest $request, Book $book): JsonResponse
+    public function update(AdminBookUpdateRequest $request, Book $book): JsonResponse
     {
         $this->repository->update($book, $request->validated());
 
@@ -96,7 +96,7 @@ class BooksController extends Controller
      */
     public function destroy(Book $book): Response
     {
-        // TODO stop action if there is any reservation
+        // TODO we have a better logic for this action when book have reservation, for now we just use soft delete
         $this->repository->delete($book);
 
         return response()->noContent();

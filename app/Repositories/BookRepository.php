@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Interfaces\IBookRepository;
 use App\Models\Book;
 use App\Utils\Repositories\ResourceRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class BookRepository extends ResourceRepository implements IBookRepository
 {
@@ -21,5 +22,12 @@ class BookRepository extends ResourceRepository implements IBookRepository
         $this->model = $this->model->visible();
 
         return $this;
+    }
+
+    public function delete(Model|string $model): void
+    {
+        $model = $this->find($model);
+        $model->copies()->delete();
+        parent::delete($model);
     }
 }

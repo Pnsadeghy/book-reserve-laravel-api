@@ -12,7 +12,7 @@ class AdminBookUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,11 +26,11 @@ class AdminBookUpdateRequest extends FormRequest
 
         return [
             'title' => [
-                'required', 'string',
-                Rule::unique('books', 'name')->ignore($id),
+                'sometimes', 'string',
+                Rule::unique('books', 'title')->ignore($id),
             ],
-            'description' => 'nullable|string',
-            'visible' => 'boolean',
+            'description' => 'sometimes|nullable|string',
+            'visible' => 'sometimes|boolean',
         ];
     }
 }

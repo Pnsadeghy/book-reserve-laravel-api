@@ -24,7 +24,7 @@ class AdminBookStoreRequest extends FormRequest
         return [
             'title' => 'required|string|unique:books,title',
             'description' => 'nullable|string',
-            'visible' => 'boolean',
+            'visible' => 'required|boolean',
         ];
     }
 }
