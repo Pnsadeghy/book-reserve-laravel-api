@@ -12,7 +12,7 @@ class AdminBranchUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,11 +26,11 @@ class AdminBranchUpdateRequest extends FormRequest
 
         return [
             'title' => [
-                'required', 'string',
-                Rule::unique('books', 'name')->ignore($id),
+                'sometimes', 'string',
+                Rule::unique('books', 'title')->ignore($id),
             ],
-            'address' => 'nullable|string',
-            'visible' => 'boolean',
+            'address' => 'sometimes|nullable|string',
+            'visible' => 'sometimes|boolean',
         ];
     }
 }

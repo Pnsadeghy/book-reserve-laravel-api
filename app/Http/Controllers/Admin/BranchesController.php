@@ -52,7 +52,7 @@ class BranchesController extends Controller
      *
      * @bodyParam title required
      * @bodyParam address
-     * @bodyParam visible boolean
+     * @bodyParam visible required boolean
      *
      * @responseFile 201 resources/responses/Admin/Branch/store.json
      */
@@ -76,7 +76,7 @@ class BranchesController extends Controller
     /**
      * Update
      *
-     * @bodyParam title required
+     * @bodyParam title
      * @bodyParam address
      * @bodyParam visible boolean
      *
@@ -96,7 +96,7 @@ class BranchesController extends Controller
      */
     public function destroy(Branch $branch): Response
     {
-        // TODO stop action if there is any reservation
+        // TODO we have a better logic for this action when branch have copies, for now we just use soft delete
         $this->repository->delete($branch);
 
         return response()->noContent();

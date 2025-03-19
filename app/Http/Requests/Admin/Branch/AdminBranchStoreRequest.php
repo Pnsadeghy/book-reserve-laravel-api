@@ -24,7 +24,7 @@ class AdminBranchStoreRequest extends FormRequest
         return [
             'title' => 'required|string|unique:books,title',
             'address' => 'nullable|string',
-            'visible' => 'boolean',
+            'visible' => 'required|boolean',
         ];
     }
 }
