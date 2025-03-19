@@ -19,6 +19,7 @@ class BranchFactory extends Factory
         return [
             'title' => $this->faker->unique()->words(1, true),
             'address' => $this->faker->unique()->words(2, true),
+            'is_visible' => $this->faker->boolean(),
         ];
     }
 }

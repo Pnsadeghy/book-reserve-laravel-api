@@ -19,6 +19,7 @@ class BookFactory extends Factory
         return [
             'title' => $this->faker->unique()->words(1, true),
             'description' => $this->faker->unique()->words(2, true),
+            'is_visible' => $this->faker->boolean(),
         ];
     }
 }
