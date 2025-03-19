@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Traits\VisibleModelTrait;
+use App\Traits\VisibleScopeTrait;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
-    use HasFactory, HasUuids, VisibleModelTrait;
+    use HasFactory, HasUuids, VisibleScopeTrait;
 
     protected $fillable = [
         'title',

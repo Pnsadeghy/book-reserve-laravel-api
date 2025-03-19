@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Traits\VisibleFactoryTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,8 +9,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BranchFactory extends Factory
 {
-    use VisibleFactoryTrait;
-
     /**
      * Define the model's default state.
      *
