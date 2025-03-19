@@ -16,4 +16,12 @@ Route::prefix('auth')
 
 Route::prefix('user')
     ->name('user.')
-    ->middleware(['auth:sanctum'])->group(function () {});
+    ->middleware(['auth:sanctum', 'role:user'])->group(function () {
+        Route::get('books', [\App\Http\Controllers\User\BooksController::class, 'index'])->name('books.index');
+    });
+
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware(['auth:sanctum', 'role:admin'])->group(function () {
+        Route::apiResource('books', \App\Http\Controllers\Admin\BooksController::class);
+    });
