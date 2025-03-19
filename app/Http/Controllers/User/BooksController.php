@@ -50,6 +50,7 @@ class BooksController extends Controller
     public function show(Book $book): JsonResponse
     {
         // TODO Complete: User Book resource show api
+        // Must returns Book copies with their branch
         return response()->json($book);
     }
 }
