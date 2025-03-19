@@ -6,6 +6,7 @@ use App\Traits\VisibleScopeTrait;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
@@ -27,4 +28,11 @@ class Branch extends Model
             'is_visible' => 'boolean',
         ];
     }
+
+    // region Relations
+    public function copies(): HasMany
+    {
+        return $this->hasMany(BookCopy::class);
+    }
+    // endregion
 }

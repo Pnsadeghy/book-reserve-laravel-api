@@ -1,0 +1,8 @@
+{
+    "id": "uuid",
+    "title": "Title",
+    "address": null,
+    "visible": true,
+    "created_at": "date",
+    "updated_at": "date"
+}
