@@ -13,6 +13,6 @@ class VisibleScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->where('visible', true);
+        $builder->where('is_visible', true);
     }
 }

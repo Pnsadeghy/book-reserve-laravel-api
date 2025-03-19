@@ -15,15 +15,17 @@ class BookIndexTest extends TestCase
 
     public function test_index_without_parameters(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
         $this->actingAs($user);
 
         Book::factory(5)->create();
         Book::factory(5)->create([
-            'visible' => true,
+            'is_visible' => true,
         ]);
         Book::factory(5)->create([
-            'available' => true,
+            'is_available' => true,
         ]);
 
         $response = $this->getJson($this->url);
@@ -48,7 +50,9 @@ class BookIndexTest extends TestCase
 
     public function test_index_with_q_parameter(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
         $this->actingAs($user);
 
         Book::factory()->create([
