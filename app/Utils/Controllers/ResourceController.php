@@ -9,7 +9,7 @@ class ResourceController extends Controller
 {
     protected ?IResourceRepository $repository;
 
-    public function __construct(IResourceRepository $repository = null)
+    public function __construct(?IResourceRepository $repository = null)
     {
         $this->repository = $repository;
     }

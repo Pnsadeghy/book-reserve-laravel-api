@@ -16,8 +16,7 @@ use Illuminate\Http\Request;
  */
 class AuthController extends Controller
 {
-    public function __construct(protected IUserRepository $repository)
-    {}
+    public function __construct(protected IUserRepository $repository) {}
 
     /**
      * Login
@@ -27,13 +26,14 @@ class AuthController extends Controller
      *
      * @responseFile 200 resources/responses/Auth/login.json
      */
-    public function login(AuthLoginRequest $request): JsonResponse {
+    public function login(AuthLoginRequest $request): JsonResponse
+    {
 
         $user = $this->repository->findByEmailAndPassword(
-            $request->string("email"), $request->string("password")
+            $request->string('email'), $request->string('password')
         );
 
-        abort_if($user === null, 401, __("auth.failed"));
+        abort_if($user === null, 401, __('auth.failed'));
 
         return response()->json(new LoginResource($user));
     }
@@ -48,10 +48,11 @@ class AuthController extends Controller
      *
      * @responseFile 201 resources/responses/Auth/register.json
      */
-    public function register(AuthRegisterRequest $request): JsonResponse {
+    public function register(AuthRegisterRequest $request): JsonResponse
+    {
         $data = $request->validated();
 
-        $data["password"] = bcrypt($data["password"]);
+        $data['password'] = bcrypt($data['password']);
 
         $user = $this->repository->store($data);
 
@@ -63,7 +64,8 @@ class AuthController extends Controller
      *
      * @authenticated
      */
-    public function logout(Request $request): JsonResponse {
+    public function logout(Request $request): JsonResponse
+    {
         $request->user()->currentAccessToken()->delete();
 
         return response()->json();

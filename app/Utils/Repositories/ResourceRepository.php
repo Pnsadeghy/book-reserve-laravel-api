@@ -19,6 +19,7 @@ class ResourceRepository implements IResourceRepository
     protected Builder $model;
 
     protected array $stringSearchFilters;
+
     protected array $searchProperties;
 
     public function __construct()
@@ -29,44 +30,43 @@ class ResourceRepository implements IResourceRepository
         }
     }
 
-    public function boot(): void
-    {
-    }
+    public function boot(): void {}
 
     public function find(Model|string $model, array $columns = ['*']): Model
     {
         if (is_string($model)) {
             $model = $this->model->find($model, $columns);
-        } elseif($columns[0] = "*") {
+        } elseif ($columns[0] = '*') {
             return $model;
-        } {
-            $model = $this->model->find($model->id, $columns);
+        }
+        $model = $this->model->find($model->id, $columns);
+
+        if (! $model) {
+            throw new ModelNotFoundException;
         }
 
-        if (!$model) {
-            throw new ModelNotFoundException();
-        }
         return $model;
     }
 
     public function paginate(
         int $perPage,
-        string $sortBy = "created_at",
+        string $sortBy = 'created_at',
         bool $sortDesc = true,
         array $columns = ['*'],
         string $pageName = 'page',
-        int|null $page = null
-    ): Paginator
-    {
+        ?int $page = null
+    ): Paginator {
         return $this->model
-            ->orderBy($sortBy, $sortDesc ? "desc" : "asc")
+            ->orderBy($sortBy, $sortDesc ? 'desc' : 'asc')
             ->paginate($perPage, $columns, $pageName, $page);
     }
 
-    public function take(int $count, string $sortBy = "created_at", bool $sortDesc = true): IResourceRepository {
+    public function take(int $count, string $sortBy = 'created_at', bool $sortDesc = true): IResourceRepository
+    {
         $this->model = $this->model
-            ->orderBy($sortBy, $sortDesc ? "desc" : "asc")
+            ->orderBy($sortBy, $sortDesc ? 'desc' : 'asc')
             ->take($count);
+
         return $this;
     }
 
@@ -78,6 +78,7 @@ class ResourceRepository implements IResourceRepository
     public function withTrashed(): IResourceRepository
     {
         $this->model = $this->model->withTrashed();
+
         return $this;
     }
 
@@ -110,7 +111,7 @@ class ResourceRepository implements IResourceRepository
 
     public function store(array $data): Model
     {
-        $modelInstance = new $this->modelClass();
+        $modelInstance = new $this->modelClass;
         foreach ($data as $key => $value) {
             $modelInstance->{$key} = $value;
         }
@@ -152,16 +153,18 @@ class ResourceRepository implements IResourceRepository
 
         if ($result instanceof Builder) {
             $this->model = $result;
+
             return $this;
         }
 
         return $result;
     }
 
-
-
-    protected function searchHelper(string $search, array $filters): void {
-        if (empty($search)) return;
+    protected function searchHelper(string $search, array $filters): void
+    {
+        if (empty($search)) {
+            return;
+        }
 
         $this->model = $this->model->where(function ($query) use ($search, $filters) {
             foreach ($filters as $filter) {

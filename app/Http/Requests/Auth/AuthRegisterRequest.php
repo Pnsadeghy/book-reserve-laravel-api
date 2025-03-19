@@ -16,8 +16,6 @@ class AuthRegisterRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
-     * @return array
      */
     public function rules(): array
     {
@@ -36,7 +34,7 @@ class AuthRegisterRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.unique' => __('auth.duplicate_email')
+            'email.unique' => __('auth.duplicate_email'),
         ];
     }
 }

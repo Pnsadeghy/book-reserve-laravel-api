@@ -14,16 +14,16 @@ interface IResourceRepository
 
     public function paginate(
         int $perPage,
-        string $sortBy = "created_at",
+        string $sortBy = 'created_at',
         bool $sortDesc = true,
         array $columns = ['*'],
         string $pageName = 'page',
-        int|null $page = null
+        ?int $page = null
     );
 
     public function take(
         int $count,
-        string $sortBy = "created_at",
+        string $sortBy = 'created_at',
         bool $sortDesc = true
     );
 
