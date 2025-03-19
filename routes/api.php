@@ -17,7 +17,7 @@ Route::prefix('auth')
 Route::prefix('user')
     ->name('user.')
     ->middleware(['auth:sanctum', 'role:user'])->group(function () {
-        Route::get('books', [\App\Http\Controllers\User\BooksController::class, 'index'])->name('books.index');
+        Route::apiResource('books', \App\Http\Controllers\User\BooksController::class)->only(['index', 'show']);
     });
 
 Route::prefix('admin')
