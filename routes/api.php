@@ -16,13 +16,14 @@ Route::prefix('auth')
 
 Route::prefix('user')
     ->name('user.')
-    ->middleware(['auth:sanctum', 'role:user'])->group(function () {
+    ->middleware(['auth:sanctum', 'role:user', 'visible'])->group(function () {
         Route::apiResource('books', \App\Http\Controllers\User\BooksController::class)->only(['index', 'show']);
     });
 
 Route::prefix('admin')
     ->name('admin.')
     ->middleware(['auth:sanctum', 'role:admin'])->group(function () {
+        Route::apiResource('books.copies', \App\Http\Controllers\Admin\BookCopiesController::class)->shallow();
         Route::apiResource('books', \App\Http\Controllers\Admin\BooksController::class);
         Route::apiResource('branches', \App\Http\Controllers\Admin\BranchesController::class);
     });
