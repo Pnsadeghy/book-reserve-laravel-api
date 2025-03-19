@@ -5,6 +5,7 @@
             "title": "Title",
             "description": null,
             "visible": true,
+            "available": true,
             "created_at": "date"
         }
     ],

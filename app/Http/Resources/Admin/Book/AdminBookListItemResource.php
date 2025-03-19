@@ -19,6 +19,7 @@ class AdminBookListItemResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'visible' => $this->is_visible,
+            'available' => $this->is_available,
             'created_at' => $this->created_at,
         ];
     }

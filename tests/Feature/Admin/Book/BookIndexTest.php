@@ -19,7 +19,12 @@ class BookIndexTest extends TestCase
         $this->actingAs($user);
 
         Book::factory(5)->create();
-        Book::factory(5)->unvisible()->create();
+        Book::factory(5)->create([
+            'visible' => true
+        ]);
+        Book::factory(5)->create([
+            'available' => true
+        ]);
 
         $response = $this->getJson($this->url);
 
@@ -34,6 +39,7 @@ class BookIndexTest extends TestCase
                     'title',
                     'description',
                     'visible',
+                    'available',
                     'created_at',
                 ],
             ],
