@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\BookCopyConditionEnum;
 use App\Enums\BookCopyStatusEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,14 +20,8 @@ class BookCopyFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->words(1, true),
-            'status' => $this->faker->randomElement(
-                [
-                    BookCopyStatusEnum::Available,
-                    BookCopyStatusEnum::Transferred,
-                    BookCopyStatusEnum::UnderRepair,
-                    BookCopyStatusEnum::Lost,
-                ]
-            ),
+            'status' => $this->faker->randomElement(BookCopyStatusEnum::availableValues()),
+            'condition' => $this->faker->randomElement(BookCopyConditionEnum::values()),
         ];
     }
 }

@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('book_copies', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
-            $table->foreignUuid('book_id')->nullable()->constrained();
-            $table->foreignUuid('branch_id')->nullable()->constrained();
+            $table->foreignUuid('book_id')->constrained();
+            $table->foreignUuid('branch_id')->constrained();
 
             $table->string('title');
             $table->boolean('is_visible')->default(false);
             $table->string('status');
+            $table->string('condition');
 
             $table->timestamps();
         });
