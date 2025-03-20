@@ -42,6 +42,7 @@ class BookStoreTest extends TestCase
             'title' => 'Test Book',
             'description' => 'This is a test book.',
             'is_visible' => true,
+            'is_available' => false,
         ]);
     }
 }

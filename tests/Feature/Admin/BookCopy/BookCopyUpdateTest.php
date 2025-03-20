@@ -29,6 +29,7 @@ class BookCopyUpdateTest extends TestCase
         $bookCopy = BookCopy::factory()->create([
             'branch_id' => $branch->id,
             'book_id' => $book->id,
+            'status' => BookCopyStatusEnum::Available
         ]);
 
         $response = $this->putJson($this->getUrl($bookCopy->id), [
@@ -61,6 +62,4 @@ class BookCopyUpdateTest extends TestCase
             'condition' => BookCopyConditionEnum::Worn,
         ]);
     }
-
-    // TODO Write test: can have effect on book is_available column
 }

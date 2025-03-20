@@ -5,6 +5,7 @@ namespace Admin\BookCopy;
 use App\Enums\BookCopyConditionEnum;
 use App\Enums\BookCopyStatusEnum;
 use App\Models\Book;
+use App\Models\BookCopy;
 use App\Models\Branch;
 use App\Utils\Tests\TestUtils;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -61,6 +62,4 @@ class BookCopyStoreTest extends TestCase
             'condition' => BookCopyConditionEnum::Good,
         ]);
     }
-
-    // TODO Write test: can have effect on book is_available column
 }
