@@ -15,6 +15,9 @@ class BookRepository extends ResourceRepository implements IBookRepository
     {
         parent::__construct();
         $this->stringSearchFilters = ['title', 'description'];
+        $this->requestPropertiesColumns = [
+            'visible' => 'is_visible',
+        ];
     }
 
     public function visible(): IBookRepository
