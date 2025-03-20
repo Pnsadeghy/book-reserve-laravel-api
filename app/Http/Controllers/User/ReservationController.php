@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Enums\ReservationStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommonIndexRequest;
 use App\Http\Resources\User\Reservation\UserReservationResource;
@@ -10,6 +11,7 @@ use App\Models\Reservation;
 use App\Models\Scopes\AuthUserScope;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * @group User
@@ -70,5 +72,14 @@ class ReservationController extends Controller
      *
      * @response 200
      */
-    public function cancel(Reservation $reservation) {}
+    public function cancel(Reservation $reservation): JsonResponse
+    {
+        Gate::authorize('cancel', $reservation);
+
+        $this->repository->update($reservation, [
+            'status' => ReservationStatusEnum::Canceled,
+        ]);
+
+        return response()->json([]);
+    }
 }
