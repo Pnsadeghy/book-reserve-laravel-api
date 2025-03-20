@@ -8,6 +8,7 @@ use App\Http\Resources\User\Reservation\UserReservationResource;
 use App\Interfaces\IReservationRepository;
 use App\Models\Reservation;
 use App\Models\Scopes\AuthUserScope;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -49,7 +50,10 @@ class ReservationController extends Controller
      *
      * @responseFile 200 resources/responses/Admin/Reservation/show.json
      */
-    public function show(Reservation $reservation) {}
+    public function show(Reservation $reservation): JsonResponse
+    {
+        return response()->json(new UserReservationResource($reservation));
+    }
 
     /**
      * Store new user reservation

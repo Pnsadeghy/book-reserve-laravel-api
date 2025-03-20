@@ -1,0 +1,23 @@
+{
+    "id": "uuid",
+    "book": {
+        "id": "uuid",
+        "title": "Title"
+    },
+    "copy": {
+        "id": "uuid",
+        "title": "Title"
+    },
+    "branch": {
+        "id": "uuid",
+        "title": "Title",
+        "address": "Address"
+    },
+    "days_reserved": 5,
+    "status": "active",
+    "started_at": "date",
+    "finished_at": "date",
+    "expiration_date": "date",
+    "created_at": "date",
+    "updated_at": "date"
+}
