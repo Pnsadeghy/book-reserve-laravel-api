@@ -51,6 +51,7 @@ class BookCopyIndexTest extends TestCase
                 'id',
                 'title',
                 'visible',
+                'special',
                 'status',
                 'condition',
                 'created_at',

@@ -24,10 +24,12 @@ class BookCopy extends Model
         'is_visible',
         'status',
         'condition',
+        'is_special',
     ];
 
     protected $attributes = [
         'is_visible' => false,
+        'is_special' => false,
         'status' => BookCopyStatusEnum::Available,
         'condition' => BookCopyConditionEnum::Good,
     ];
@@ -36,6 +38,7 @@ class BookCopy extends Model
     {
         return [
             'is_visible' => 'boolean',
+            'is_special' => 'boolean',
         ];
     }
 

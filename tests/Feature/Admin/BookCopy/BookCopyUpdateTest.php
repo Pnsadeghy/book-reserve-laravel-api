@@ -42,12 +42,14 @@ class BookCopyUpdateTest extends TestCase
             'id' => $bookCopy->id,
             'title' => 'Test Copy',
             'is_visible' => $bookCopy->is_visible,
+            'is_special' => $bookCopy->is_special,
             'status' => $bookCopy->status,
         ]);
 
         $response = $this->putJson($this->getUrl($bookCopy->id), [
             'title' => 'Test Copy 2',
             'visible' => true,
+            'special' => false,
             'status' => BookCopyStatusEnum::UnderRepair,
             'condition' => BookCopyConditionEnum::Worn,
         ]);
@@ -58,6 +60,7 @@ class BookCopyUpdateTest extends TestCase
             'id' => $bookCopy->id,
             'title' => 'Test Copy 2',
             'is_visible' => true,
+            'is_special' => false,
             'status' => BookCopyStatusEnum::UnderRepair,
             'condition' => BookCopyConditionEnum::Worn,
         ]);

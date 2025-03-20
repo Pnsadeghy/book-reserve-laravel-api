@@ -29,6 +29,7 @@ class BookCopyStoreTest extends TestCase
         $response = $this->postJson($this->getUrl($book->id), [
             'title' => 'Test Copy',
             'visible' => true,
+            'special' => false,
             'branch_id' => $branch->id,
             'status' => BookCopyStatusEnum::Available,
             'condition' => BookCopyConditionEnum::Good,
@@ -41,6 +42,7 @@ class BookCopyStoreTest extends TestCase
                 'title',
                 'status',
                 'condition',
+                'special',
                 'visible',
                 'created_at',
                 'updated_at',
@@ -48,6 +50,7 @@ class BookCopyStoreTest extends TestCase
             ->assertJsonFragment([
                 'title' => 'Test Copy',
                 'visible' => true,
+                'special' => false,
                 'branch_id' => $branch->id,
                 'status' => BookCopyStatusEnum::Available,
                 'condition' => BookCopyConditionEnum::Good,
@@ -56,6 +59,7 @@ class BookCopyStoreTest extends TestCase
         $this->assertDatabaseHas('book_copies', [
             'title' => 'Test Copy',
             'is_visible' => true,
+            'is_special' => false,
             'branch_id' => $branch->id,
             'status' => BookCopyStatusEnum::Available,
             'condition' => BookCopyConditionEnum::Good,

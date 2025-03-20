@@ -45,6 +45,7 @@ class BookCopiesController extends Controller
      * @bodyParam condition required string values: good,worn,damaged
      * @bodyParam branch_id required uuid
      * @bodyParam visible required boolean
+     * @bodyParam special required boolean
      *
      * @responseFile 201 resources/responses/Admin/BookCopy/store.json
      */
@@ -76,6 +77,7 @@ class BookCopiesController extends Controller
      * @bodyParam status string values: available,under_repair - Only when the copy is not reserved
      * @bodyParam branch_id uuid - Only when the copy is not reserved
      * @bodyParam visible boolean
+     * @bodyParam special boolean
      *
      * @response 200
      */

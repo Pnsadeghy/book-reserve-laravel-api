@@ -4,7 +4,8 @@
     "visible": true,
     "branch_id": "Branch ID",
     "status": "available",
-    "confition": "good",
+    "condition": "good",
+    "special": true,
     "created_at": "date",
     "updated_at": "date"
 }

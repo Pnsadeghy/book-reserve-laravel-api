@@ -16,6 +16,7 @@ class BookCopyRepository extends ResourceRepository implements IBookCopyReposito
         $this->stringSearchFilters = ['title'];
         $this->requestPropertiesColumns = [
             'visible' => 'is_visible',
+            'special' => 'is_special',
         ];
     }
 

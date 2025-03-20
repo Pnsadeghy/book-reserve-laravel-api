@@ -19,6 +19,7 @@ class UserBookCopyShowResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'status' => $this->status,
+            'special' => $this->is_special,
             'branch' => new BranchRelationResource($this->branch),
         ];
     }

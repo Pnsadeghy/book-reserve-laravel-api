@@ -22,6 +22,7 @@ class BookCopyFactory extends Factory
             'title' => fake()->title(),
             'status' => fake()->randomElement(BookCopyStatusEnum::availableValues()),
             'condition' => fake()->randomElement(BookCopyConditionEnum::values()),
+            'is_special' => fake()->boolean(),
         ];
     }
 }

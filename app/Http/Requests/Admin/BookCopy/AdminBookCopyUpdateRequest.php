@@ -35,6 +35,7 @@ class AdminBookCopyUpdateRequest extends FormRequest
                 Rule::unique('book_copies', 'title')->ignore($id)->where('book_id', $book_id),
             ],
             'visible' => 'sometimes|boolean',
+            'special' => 'sometimes|boolean',
         ];
 
         if ($status !== BookCopyStatusEnum::Reserved) {

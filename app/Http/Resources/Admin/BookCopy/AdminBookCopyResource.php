@@ -21,6 +21,7 @@ class AdminBookCopyResource extends JsonResource
             'visible' => $this->is_visible,
             'status' => $this->status,
             'condition' => $this->condition,
+            'special' => $this->is_special,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

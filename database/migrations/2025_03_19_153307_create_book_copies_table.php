@@ -19,6 +19,7 @@ return new class extends Migration
 
             $table->string('title');
             $table->boolean('is_visible')->default(false);
+            $table->boolean('is_special')->default(false);
             $table->string('status');
             $table->string('condition');
 

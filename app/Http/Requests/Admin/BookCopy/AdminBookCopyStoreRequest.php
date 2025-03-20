@@ -32,6 +32,7 @@ class AdminBookCopyStoreRequest extends FormRequest
                 Rule::unique('book_copies', 'title')->where('book_id', $id),
             ],
             'visible' => 'required|boolean',
+            'special' => 'required|boolean',
             'branch_id' => 'required|uuid|exists:branches,id',
             'status' => ['required', Rule::in(BookCopyStatusEnum::availableValues())],
             'condition' => ['required', Rule::in(BookCopyConditionEnum::values())],
