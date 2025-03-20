@@ -34,9 +34,6 @@ class Reservation extends Model
     ];
 
     // region attributes
-    /**
-     * Get is finished
-     */
     protected function isFinished(): Attribute
     {
         return Attribute::make(

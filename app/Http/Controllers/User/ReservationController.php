@@ -5,10 +5,13 @@ namespace App\Http\Controllers\User;
 use App\Enums\ReservationStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommonIndexRequest;
+use App\Http\Requests\User\Reservation\UserReservationStoreRequest;
 use App\Http\Resources\User\Reservation\UserReservationResource;
+use App\Interfaces\IBookCopyRepository;
 use App\Interfaces\IReservationRepository;
 use App\Models\Reservation;
 use App\Models\Scopes\AuthUserScope;
+use App\Services\UserReservationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Gate;
@@ -24,7 +27,9 @@ use Illuminate\Support\Facades\Gate;
  */
 class ReservationController extends Controller
 {
-    public function __construct(protected IReservationRepository $repository)
+    public function __construct(protected IReservationRepository $repository,
+                                protected IBookCopyRepository $bookCopyRepository,
+                                protected UserReservationService $userReservationService)
     {
         Reservation::addGlobalScope(AuthUserScope::class);
     }
@@ -54,6 +59,7 @@ class ReservationController extends Controller
      */
     public function show(Reservation $reservation): JsonResponse
     {
+        $reservation->load(['bookCopy', 'bookCopy.book', 'branch']);
         return response()->json(new UserReservationResource($reservation));
     }
 
@@ -61,9 +67,17 @@ class ReservationController extends Controller
      * Store new user reservation
      *
      * @bodyParam book_copy_id required uuid
-     * @bodyParam days required int
+     * @bodyParam days required int min:1
      */
-    public function store() {}
+    public function store(UserReservationStoreRequest $request): JsonResponse {
+        $bookCopy = $this->bookCopyRepository->find($request->string("book_copy_id"));
+        Gate::authorize('reserve', $bookCopy);
+
+        $reservation = $this->userReservationService->add(auth()->user(), $bookCopy, $request->integer('days'));
+
+        $reservation->load(['bookCopy', 'bookCopy.book', 'branch']);
+        return response()->json(new UserReservationResource($reservation));
+    }
 
     /**
      * Cancel

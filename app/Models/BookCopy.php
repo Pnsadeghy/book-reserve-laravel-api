@@ -8,6 +8,7 @@ use App\Observers\BookCopyObserver;
 use App\Traits\VisibleScopeTrait;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -41,6 +42,15 @@ class BookCopy extends Model
             'is_special' => 'boolean',
         ];
     }
+
+    // region attributes
+    protected function isAvailable(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value, array $attributes) => $attributes['status'] === BookCopyStatusEnum::Available,
+        );
+    }
+    // endregion
 
     // region Scopes
     public function scopeAvailable(Builder $query): void
