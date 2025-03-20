@@ -32,7 +32,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: gisselle66@example.org
+        example: cummerata.chaya@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,15 +42,15 @@ endpoints:
         name: password
         description: 'minimum character length is 6'
         required: true
-        example: '7K&4.Pl3'
+        example: ZSwX4%Dw^xDJyR^S-N
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: gisselle66@example.org
-      password: '7K&4.Pl3'
+      email: cummerata.chaya@example.com
+      password: ZSwX4%Dw^xDJyR^S-N
     fileParameters: []
     responses:
       -
@@ -100,7 +100,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: praesentium
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -110,7 +110,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: ernesto82@example.com
+        example: pagac.kathryn@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -120,7 +120,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: ':QJl-jf^3[;vU3~Tq'
+        example: '~CdUV!,ZT=Rme;qaQ'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -130,17 +130,17 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: placeat
+        example: dicta
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: praesentium
-      email: ernesto82@example.com
-      password: ':QJl-jf^3[;vU3~Tq'
-      password_confirmation: placeat
+      name: qui
+      email: pagac.kathryn@example.org
+      password: '~CdUV!,ZT=Rme;qaQ'
+      password_confirmation: dicta
     fileParameters: []
     responses:
       -
@@ -194,7 +194,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8Eg61b5dDvfZakc34a6PVeh'
+      - 'Bearer 4Dhg6Pfva5Zeb6kE83cVa1d'
     controller: null
     method: null
     route: null

@@ -50,8 +50,8 @@ class BooksController extends Controller
     /**
      * Store
      *
-     * @bodyParam title required
-     * @bodyParam description
+     * @bodyParam title required string
+     * @bodyParam description string
      * @bodyParam visible required boolean
      *
      * @responseFile 201 resources/responses/Admin/Book/store.json
@@ -76,8 +76,8 @@ class BooksController extends Controller
     /**
      * Update
      *
-     * @bodyParam title
-     * @bodyParam description
+     * @bodyParam title string
+     * @bodyParam description string
      * @bodyParam visible boolean
      *
      * @response 200

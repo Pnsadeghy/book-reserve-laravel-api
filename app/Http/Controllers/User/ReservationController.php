@@ -64,7 +64,8 @@ class ReservationController extends Controller
     public function store() {}
 
     /**
-     * Cancel pending reservation
+     * Cancel
+     *
      * Only when reservation status = pending
      *
      * @response 200

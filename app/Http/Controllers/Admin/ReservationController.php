@@ -53,7 +53,8 @@ class ReservationController extends Controller
     }
 
     /**
-     * Complete active reservation
+     * Complete
+     *
      * Only when reservation status = active
      *
      * @response 200

@@ -16,11 +16,11 @@ use Illuminate\Http\Response;
 /**
  * @group Admin
  *
- * @subgroup Book
+ * @subgroup Book copies
  *
  * @authenticated
  *
- * API endpoints for managing book
+ * API endpoints for managing book copies
  */
 class BookCopiesController extends Controller
 {
@@ -39,10 +39,10 @@ class BookCopiesController extends Controller
     /**
      * Store new book copy
      *
-     * @bodyParam title required
-     * @bodyParam status required values: available,under_repair,lost
-     * @bodyParam condition required values: good,worn,damaged
-     * @bodyParam branch_id required
+     * @bodyParam title required string
+     * @bodyParam status required string values: available,under_repair,lost
+     * @bodyParam condition required string values: good,worn,damaged
+     * @bodyParam branch_id required uuid
      * @bodyParam visible required boolean
      *
      * @responseFile 201 resources/responses/Admin/BookCopy/store.json
@@ -70,10 +70,10 @@ class BookCopiesController extends Controller
     /**
      * Update book copy
      *
-     * @bodyParam title
-     * @bodyParam condition values: good,worn,damaged - Only when the copy is not reserved
-     * @bodyParam status values: available,under_repair - Only when the copy is not reserved
-     * @bodyParam branch_id - Only when the copy is not reserved
+     * @bodyParam title string
+     * @bodyParam condition string values: good,worn,damaged - Only when the copy is not reserved
+     * @bodyParam status string values: available,under_repair - Only when the copy is not reserved
+     * @bodyParam branch_id uuid - Only when the copy is not reserved
      * @bodyParam visible boolean
      *
      * @response 200

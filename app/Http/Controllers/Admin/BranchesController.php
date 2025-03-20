@@ -28,7 +28,7 @@ class BranchesController extends Controller
     public function __construct(protected IBranchRepository $repository) {}
 
     /**
-     * All books
+     * All branches
      *
      * @queryParam q string
      * @queryParam page integer
@@ -50,8 +50,8 @@ class BranchesController extends Controller
     /**
      * Store
      *
-     * @bodyParam title required
-     * @bodyParam address
+     * @bodyParam title required string
+     * @bodyParam address string
      * @bodyParam visible required boolean
      *
      * @responseFile 201 resources/responses/Admin/Branch/store.json
@@ -76,8 +76,8 @@ class BranchesController extends Controller
     /**
      * Update
      *
-     * @bodyParam title
-     * @bodyParam address
+     * @bodyParam title string
+     * @bodyParam address string
      * @bodyParam visible boolean
      *
      * @response 200

@@ -1,0 +1,455 @@
+name: User
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/user/books
+    metadata:
+      groupName: User
+      groupDescription: ''
+      subgroup: Book
+      subgroupDescription: ''
+      title: 'All books'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      q:
+        name: q
+        description: ''
+        required: false
+        example: nam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      per_page:
+        name: per_page
+        description: ''
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      q: nam
+      page: 6
+      per_page: 10
+    bodyParameters:
+      q:
+        name: q
+        description: ''
+        required: false
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      per_page:
+        name: per_page
+        description: 'Must be at least 1.'
+        required: false
+        example: 74
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      q: quia
+      per_page: 74
+      page: 20
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "data": [
+                  {
+                      "id": "uuid",
+                      "title": "Title",
+                      "description": null,
+                      "created_at": "date"
+                  }
+              ],
+              "meta": {
+                  "current_page": 1,
+                  "last_page": 1,
+                  "per_page": 10,
+                  "total": 2
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer f6ca45dkgDv1EPbe3VZa68h'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/user/books/{id}'
+    metadata:
+      groupName: User
+      groupDescription: ''
+      subgroup: Book
+      subgroupDescription: ''
+      title: 'Get book information'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: ea
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: ea
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "id": "uuid",
+              "title": "Title",
+              "description": "Description",
+              "available": true,
+              "copies": [
+                  {
+                      "id": "uuid",
+                      "title": "Title",
+                      "status": "available",
+                      "branch": {
+                          "id": "uuid",
+                          "title": "Title",
+                          "address": "Address"
+                      }
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 48acPbV6hfe51g6akE3dDZv'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/user/reservations/{reservation_id}/cancel'
+    metadata:
+      groupName: User
+      groupDescription: ''
+      subgroup: Reservation
+      subgroupDescription: ''
+      title: Cancel
+      description: 'Only when reservation status = pending'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      reservation_id:
+        name: reservation_id
+        description: 'The ID of the reservation.'
+        required: true
+        example: alias
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      reservation_id: alias
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer gPVb3k56hEcf1ZdD8a64aev'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/user/reservations
+    metadata:
+      groupName: User
+      groupDescription: ''
+      subgroup: Reservation
+      subgroupDescription: ''
+      title: 'All reservations'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: ''
+        required: false
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      per_page:
+        name: per_page
+        description: ''
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      page: 4
+      per_page: 1
+    bodyParameters:
+      q:
+        name: q
+        description: ''
+        required: false
+        example: non
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      per_page:
+        name: per_page
+        description: 'Must be at least 1.'
+        required: false
+        example: 74
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 32
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      q: non
+      per_page: 74
+      page: 32
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "data": [
+                  {
+                      "id": "uuid",
+                      "user": {
+                          "id": "uuid",
+                          "name": "User name"
+                      },
+                      "book": {
+                          "id": "uuid",
+                          "title": "Title"
+                      },
+                      "copy": {
+                          "id": "uuid",
+                          "title": "Title"
+                      },
+                      "branch": {
+                          "id": "uuid",
+                          "title": "Title",
+                          "address": "Address"
+                      },
+                      "days_reserved": 5,
+                      "status": "active",
+                      "started_at": "date",
+                      "finished_at": "date",
+                      "expiration_date": "date",
+                      "created_at": "date",
+                      "updated_at": "date"
+                  }
+              ],
+              "meta": {
+                  "current_page": 1,
+                  "last_page": 1,
+                  "per_page": 10,
+                  "total": 2
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer fh8a6k5veE1ZcVbdag643PD'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/user/reservations/{id}'
+    metadata:
+      groupName: User
+      groupDescription: ''
+      subgroup: Reservation
+      subgroupDescription: ''
+      title: Show
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the reservation.'
+        required: true
+        example: facilis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: facilis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "id": "uuid",
+              "user": {
+                  "id": "uuid",
+                  "name": "User name"
+              },
+              "book": {
+                  "id": "uuid",
+                  "title": "Title"
+              },
+              "copy": {
+                  "id": "uuid",
+                  "title": "Title"
+              },
+              "branch": {
+                  "id": "uuid",
+                  "title": "Title",
+                  "address": "Address"
+              },
+              "days_reserved": 5,
+              "status": "active",
+              "started_at": "date",
+              "finished_at": "date",
+              "expiration_date": "date",
+              "created_at": "date",
+              "updated_at": "date"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer vPacZhDf16Vd3kEa5846geb'
+    controller: null
+    method: null
+    route: null
+    custom: []
