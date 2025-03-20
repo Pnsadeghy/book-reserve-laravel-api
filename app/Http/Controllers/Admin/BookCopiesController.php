@@ -12,6 +12,7 @@ use App\Models\Book;
 use App\Models\BookCopy;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * @group Admin
@@ -92,6 +93,8 @@ class BookCopiesController extends Controller
      */
     public function destroy(BookCopy $bookCopy): Response
     {
+        Gate::authorize('delete', $bookCopy);
+
         $this->repository->delete($bookCopy);
 
         return response()->noContent();
