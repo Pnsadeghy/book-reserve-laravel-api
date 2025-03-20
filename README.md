@@ -26,7 +26,8 @@ This is a robust API built with Laravel 12, designed to manage book reservations
 - Api Documentation: http://localhost:8000/docs
 
 ## Files
-- [Postman collection](https://github.com/Pnsadeghy/Laravel-Asynchronous-Bookmark-Metadata-Fetcher/blob/master/postman.collection.json)
+- [Postman collection](https://github.com/Pnsadeghy/book-reserve-laravel-api/blob/master/postman.collection.json)
+- [OpenApi](https://github.com/Pnsadeghy/book-reserve-laravel-api/blob/master/openapi.yaml)
 
 ### Framework Documentation
 - [Laravel 11](https://laravel.com/docs/11.x)
