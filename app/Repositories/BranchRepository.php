@@ -14,6 +14,9 @@ class BranchRepository extends ResourceRepository implements IBranchRepository
     {
         parent::__construct();
         $this->stringSearchFilters = ['title', 'address'];
+        $this->requestPropertiesColumns = [
+            'visible' => 'is_visible',
+        ];
     }
 
     public function visible(): IBranchRepository

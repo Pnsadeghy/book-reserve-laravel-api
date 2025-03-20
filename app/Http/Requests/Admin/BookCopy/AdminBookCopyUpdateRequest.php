@@ -35,7 +35,7 @@ class AdminBookCopyUpdateRequest extends FormRequest
             'visible' => 'required|boolean',
             'branch_id' => 'required|uuid|exists:branches,id',
             'status' => ['required', Rule::in(BookCopyStatusEnum::availableValues())],
-            'conditions' => ['required', Rule::in(BookCopyConditionEnum::values())],
+            'condition' => ['required', Rule::in(BookCopyConditionEnum::values())],
         ];
     }
 }

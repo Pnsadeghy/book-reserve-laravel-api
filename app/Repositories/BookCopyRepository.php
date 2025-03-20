@@ -14,6 +14,9 @@ class BookCopyRepository extends ResourceRepository implements IBookCopyReposito
     {
         parent::__construct();
         $this->stringSearchFilters = ['title'];
+        $this->requestPropertiesColumns = [
+            'visible' => 'is_visible',
+        ];
     }
 
     public function visible(): IBookCopyRepository
