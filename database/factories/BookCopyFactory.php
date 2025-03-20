@@ -19,9 +19,9 @@ class BookCopyFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->unique()->words(1, true),
-            'status' => $this->faker->randomElement(BookCopyStatusEnum::availableValues()),
-            'condition' => $this->faker->randomElement(BookCopyConditionEnum::values()),
+            'title' => fake()->title(),
+            'status' => fake()->randomElement(BookCopyStatusEnum::availableValues()),
+            'condition' => fake()->randomElement(BookCopyConditionEnum::values()),
         ];
     }
 }

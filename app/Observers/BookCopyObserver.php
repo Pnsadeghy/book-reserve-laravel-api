@@ -4,14 +4,10 @@ namespace App\Observers;
 
 use App\Models\BookCopy;
 use App\Services\BookAvailabilityService;
-use Illuminate\Support\Facades\Log;
 
 class BookCopyObserver
 {
-    public function __construct(protected BookAvailabilityService $bookAvailabilityService)
-    {
-
-    }
+    public function __construct(protected BookAvailabilityService $bookAvailabilityService) {}
 
     /**
      * Handle the BookCopy "created" event.
@@ -26,7 +22,7 @@ class BookCopyObserver
      */
     public function updated(BookCopy $bookCopy): void
     {
-        if ($bookCopy->wasChanged("status")) {
+        if ($bookCopy->wasChanged('status') || $bookCopy->wasChanged('is_visible')) {
             $this->bookAvailabilityService->checkAvailability($bookCopy->book);
         }
     }

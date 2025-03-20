@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait VisibleScopeTrait
 {
-    public function scopeVisible(Builder $query): Builder
+    public function scopeVisible(Builder $query): void
     {
-        return $query->where('is_visible', true);
+        $query->where('is_visible', true);
     }
 }

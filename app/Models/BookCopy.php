@@ -40,9 +40,9 @@ class BookCopy extends Model
     }
 
     // region Scopes
-    public function scopeAvailable(Builder $query): Builder
+    public function scopeAvailable(Builder $query): void
     {
-        return $query->where('status', BookCopyStatusEnum::Available);
+        $query->where('status', BookCopyStatusEnum::Available);
     }
     // endregion
 

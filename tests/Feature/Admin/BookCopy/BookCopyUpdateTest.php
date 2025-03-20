@@ -29,7 +29,7 @@ class BookCopyUpdateTest extends TestCase
         $bookCopy = BookCopy::factory()->create([
             'branch_id' => $branch->id,
             'book_id' => $book->id,
-            'status' => BookCopyStatusEnum::Available
+            'status' => BookCopyStatusEnum::Available,
         ]);
 
         $response = $this->putJson($this->getUrl($bookCopy->id), [

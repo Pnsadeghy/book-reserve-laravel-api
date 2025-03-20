@@ -17,9 +17,9 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->unique()->words(1, true),
-            'description' => $this->faker->unique()->words(2, true),
-            'is_visible' => $this->faker->boolean(),
+            'title' => fake()->title(),
+            'description' => fake()->text(),
+            'is_visible' => fake()->boolean(),
         ];
     }
 }

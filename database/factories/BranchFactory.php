@@ -17,9 +17,9 @@ class BranchFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->unique()->words(1, true),
-            'address' => $this->faker->unique()->words(2, true),
-            'is_visible' => $this->faker->boolean(),
+            'title' => fake()->title(),
+            'address' => fake()->address(),
+            'is_visible' => fake()->boolean(),
         ];
     }
 }
