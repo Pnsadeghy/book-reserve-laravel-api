@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BookCopy\AdminBookCopyStoreRequest;
 use App\Http\Requests\Admin\BookCopy\AdminBookCopyUpdateRequest;
 use App\Http\Requests\CommonIndexRequest;
-use App\Http\Resources\Admin\Book\AdminBookCopyResource;
+use App\Http\Resources\Admin\BookCopy\AdminBookCopyResource;
 use App\Interfaces\IBookCopyRepository;
 use App\Models\Book;
 use App\Models\BookCopy;

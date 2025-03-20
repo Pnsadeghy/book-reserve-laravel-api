@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Book;
+namespace App\Http\Requests\Admin\Branch;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Admin\Book;
+namespace App\Http\Resources\Admin\BookCopy;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

@@ -16,7 +16,7 @@ class BranchIndexTest extends TestCase
     public function test_index_without_parameters(): void
     {
         $user = User::factory()->create([
-            'is_admin' => true
+            'is_admin' => true,
         ]);
         $this->actingAs($user);
 
@@ -47,7 +47,7 @@ class BranchIndexTest extends TestCase
     public function test_index_with_q_parameter(): void
     {
         $user = User::factory()->create([
-            'is_admin' => true
+            'is_admin' => true,
         ]);
         $this->actingAs($user);
 

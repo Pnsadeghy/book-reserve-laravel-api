@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Book\AdminBranchStoreRequest;
-use App\Http\Requests\Admin\Book\AdminBranchUpdateRequest;
+use App\Http\Requests\Admin\Branch\AdminBranchStoreRequest;
+use App\Http\Requests\Admin\Branch\AdminBranchUpdateRequest;
 use App\Http\Requests\CommonIndexRequest;
 use App\Http\Resources\Admin\Branch\AdminBranchListItemResource;
 use App\Http\Resources\Admin\Branch\AdminBranchResource;

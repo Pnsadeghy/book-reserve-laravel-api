@@ -31,8 +31,6 @@ class BookCopy extends Model
     {
         return [
             'is_visible' => 'boolean',
-            'status' => BookCopyStatusEnum::class,
-            'condition' => BookCopyConditionEnum::class,
         ];
     }
 

@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Interfaces\IBookCopyRepository;
 use App\Interfaces\IBookRepository;
 use App\Interfaces\IBranchRepository;
 use App\Interfaces\IUserRepository;
+use App\Repositories\BookCopyRepository;
 use App\Repositories\BookRepository;
 use App\Repositories\BranchRepository;
 use App\Repositories\UserRepository;
@@ -16,6 +18,7 @@ class AppRepositoriesProvider extends ServiceProvider
         IUserRepository::class => UserRepository::class,
         IBookRepository::class => BookRepository::class,
         IBranchRepository::class => BranchRepository::class,
+        IBookCopyRepository::class => BookCopyRepository::class,
     ];
 
     /**
