@@ -5,13 +5,13 @@ namespace Admin\BookCopy;
 use App\Models\Book;
 use App\Models\BookCopy;
 use App\Models\Branch;
-use App\Models\User;
+use App\Utils\Tests\TestUtils;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class BookCopyIndexTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, TestUtils;
 
     private function getUrl(string $id): string
     {
@@ -20,10 +20,7 @@ class BookCopyIndexTest extends TestCase
 
     public function test_index(): void
     {
-        $user = User::factory()->create([
-            'is_admin' => true,
-        ]);
-        $this->actingAs($user);
+        $this->loginAsAdmin();
 
         $book_1 = Book::factory()->create();
         $book_2 = Book::factory()->create();

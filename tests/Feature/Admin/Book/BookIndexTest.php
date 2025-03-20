@@ -4,21 +4,19 @@ namespace Tests\Feature\Admin\Book;
 
 use App\Models\Book;
 use App\Models\User;
+use App\Utils\Tests\TestUtils;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class BookIndexTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, TestUtils;
 
     private string $url = '/api/admin/books';
 
     public function test_index_without_parameters(): void
     {
-        $user = User::factory()->create([
-            'is_admin' => true,
-        ]);
-        $this->actingAs($user);
+        $this->loginAsAdmin();
 
         Book::factory(5)->create();
         Book::factory(5)->create([

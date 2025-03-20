@@ -4,21 +4,19 @@ namespace Tests\Feature\Admin\Branch;
 
 use App\Models\Branch;
 use App\Models\User;
+use App\Utils\Tests\TestUtils;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class BranchIndexTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, TestUtils;
 
     private string $url = '/api/admin/branches';
 
     public function test_index_without_parameters(): void
     {
-        $user = User::factory()->create([
-            'is_admin' => true,
-        ]);
-        $this->actingAs($user);
+        $this->loginAsAdmin();
 
         Branch::factory(5)->create();
         Branch::factory(5)->create([
