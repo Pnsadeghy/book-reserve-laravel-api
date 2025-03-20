@@ -23,14 +23,14 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: sit
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      book_id: sit
+      book_id: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -38,7 +38,7 @@ endpoints:
         name: q
         description: ''
         required: false
-        example: velit
+        example: porro
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +48,7 @@ endpoints:
         name: per_page
         description: 'Must be at least 1.'
         required: false
-        example: 61
+        example: 40
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -58,16 +58,16 @@ endpoints:
         name: page
         description: 'Must be at least 1.'
         required: false
-        example: 37
+        example: 68
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      q: velit
-      per_page: 61
-      page: 37
+      q: porro
+      per_page: 40
+      page: 68
     fileParameters: []
     responses:
       -
@@ -80,7 +80,8 @@ endpoints:
                   "visible": true,
                   "branch_id": "Branch ID",
                   "status": "available",
-                  "confition": "good",
+                  "condition": "good",
+                  "special": true,
                   "created_at": "date",
                   "updated_at": "date"
               }
@@ -92,7 +93,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer vaZ5DEVacfeg8b36d1P64hk'
+      - 'Bearer h8Pa6EZvkb56dc34aeDfVg1'
     controller: null
     method: null
     route: null
@@ -119,14 +120,14 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: omnis
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      book_id: omnis
+      book_id: quis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -134,7 +135,7 @@ endpoints:
         name: title
         description: string
         required: false
-        example: excepturi
+        example: molestias
         type: required
         enumValues: []
         exampleWasSpecified: false
@@ -144,7 +145,17 @@ endpoints:
         name: visible
         description: boolean
         required: false
-        example: pariatur
+        example: saepe
+        type: required
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      special:
+        name: special
+        description: boolean
+        required: false
+        example: voluptatum
         type: required
         enumValues: []
         exampleWasSpecified: false
@@ -154,7 +165,7 @@ endpoints:
         name: branch_id
         description: uuid
         required: false
-        example: labore
+        example: enim
         type: required
         enumValues: []
         exampleWasSpecified: false
@@ -164,7 +175,7 @@ endpoints:
         name: status
         description: 'string values: available,under_repair,lost'
         required: false
-        example: deleniti
+        example: nemo
         type: required
         enumValues: []
         exampleWasSpecified: false
@@ -174,18 +185,19 @@ endpoints:
         name: condition
         description: 'string values: good,worn,damaged'
         required: false
-        example: consequuntur
+        example: aperiam
         type: required
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: excepturi
-      visible: pariatur
-      branch_id: labore
-      status: deleniti
-      condition: consequuntur
+      title: molestias
+      visible: saepe
+      special: voluptatum
+      branch_id: enim
+      status: nemo
+      condition: aperiam
     fileParameters: []
     responses:
       -
@@ -197,7 +209,8 @@ endpoints:
               "visible": true,
               "branch_id": "Branch ID",
               "status": "available",
-              "confition": "good",
+              "condition": "good",
+              "special": true,
               "created_at": "date",
               "updated_at": "date"
           }
@@ -208,7 +221,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer P6ca6D3Vfbvd1aeZEg5h4k8'
+      - 'Bearer kaghe51av3DVPf6d6ZcE84b'
     controller: null
     method: null
     route: null
@@ -235,14 +248,14 @@ endpoints:
         name: id
         description: 'The ID of the bookCopy.'
         required: true
-        example: perferendis
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: perferendis
+      id: qui
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -258,7 +271,8 @@ endpoints:
               "visible": true,
               "branch_id": "Branch ID",
               "status": "available",
-              "confition": "good",
+              "condition": "good",
+              "special": true,
               "created_at": "date",
               "updated_at": "date"
           }
@@ -269,7 +283,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g584vba66d3eDZhVPc1aEkf'
+      - 'Bearer 8gdZ41cb5P6Vvae63DEhkfa'
     controller: null
     method: null
     route: null
@@ -297,14 +311,14 @@ endpoints:
         name: id
         description: 'The ID of the bookCopy.'
         required: true
-        example: qui
+        example: ab
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: qui
+      id: ab
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -312,7 +326,7 @@ endpoints:
         name: title
         description: ''
         required: false
-        example: officia
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -328,11 +342,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      special:
+        name: special
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       status:
         name: status
         description: 'values: available,under_repair - Only when the copy is not reserved'
         required: false
-        example: dolorem
+        example: iste
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -342,7 +366,7 @@ endpoints:
         name: condition
         description: 'values: good,worn,damaged - Only when the copy is not reserved'
         required: false
-        example: aut
+        example: porro
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -352,18 +376,19 @@ endpoints:
         name: branch_id
         description: '- Only when the copy is not reserved'
         required: false
-        example: quod
+        example: in
         type: uuid
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: officia
+      title: enim
       visible: false
-      status: dolorem
-      condition: aut
-      branch_id: quod
+      special: true
+      status: iste
+      condition: porro
+      branch_id: in
     fileParameters: []
     responses:
       -
@@ -376,7 +401,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer VhdeZ6Ebf5463g1kacaDv8P'
+      - 'Bearer geDdvahka365V64bPZ8cEf1'
     controller: null
     method: null
     route: null
@@ -403,14 +428,14 @@ endpoints:
         name: id
         description: 'The ID of the bookCopy.'
         required: true
-        example: dicta
+        example: iste
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: dicta
+      id: iste
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -427,7 +452,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bcva4PZEahk66D51eg8f3dV'
+      - 'Bearer 3d4aVhakeP656vbD1Zg8cfE'
     controller: null
     method: null
     route: null
@@ -456,7 +481,7 @@ endpoints:
         name: q
         description: ''
         required: false
-        example: in
+        example: dolores
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -466,7 +491,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: 15
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -476,22 +501,22 @@ endpoints:
         name: per_page
         description: ''
         required: false
-        example: 7
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      q: in
-      page: 15
-      per_page: 7
+      q: dolores
+      page: 18
+      per_page: 11
     bodyParameters:
       q:
         name: q
         description: ''
         required: false
-        example: et
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -501,7 +526,7 @@ endpoints:
         name: per_page
         description: 'Must be at least 1.'
         required: false
-        example: 28
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -511,16 +536,16 @@ endpoints:
         name: page
         description: 'Must be at least 1.'
         required: false
-        example: 61
+        example: 24
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      q: et
-      per_page: 28
-      page: 61
+      q: est
+      per_page: 3
+      page: 24
     fileParameters: []
     responses:
       -
@@ -551,7 +576,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer fcD3d56aZEb18hkgeavV4P6'
+      - 'Bearer PEa3b5aD4kZv6Ve81gfchd6'
     controller: null
     method: null
     route: null
@@ -592,7 +617,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Officia voluptate ipsam optio quis et.'
+        example: 'Vitae aut porro fuga nihil voluptas molestias quia ea.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -602,7 +627,7 @@ endpoints:
         name: visible
         description: boolean
         required: false
-        example: velit
+        example: fugit
         type: required
         enumValues: []
         exampleWasSpecified: false
@@ -610,8 +635,8 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: voluptas
-      description: 'Officia voluptate ipsam optio quis et.'
-      visible: velit
+      description: 'Vitae aut porro fuga nihil voluptas molestias quia ea.'
+      visible: fugit
     fileParameters: []
     responses:
       -
@@ -633,7 +658,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bafhav5Vc684gkZe16DP3dE'
+      - 'Bearer 6fZe18EPv6khdba4DcV35ga'
     controller: null
     method: null
     route: null
@@ -660,14 +685,14 @@ endpoints:
         name: id
         description: 'The ID of the book.'
         required: true
-        example: dolores
+        example: sequi
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: dolores
+      id: sequi
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -693,7 +718,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8cfa1vEdDVb5ehgk463ZPa6'
+      - 'Bearer Za1acED4db5fV68kvghe63P'
     controller: null
     method: null
     route: null
@@ -721,14 +746,14 @@ endpoints:
         name: id
         description: 'The ID of the book.'
         required: true
-        example: optio
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: optio
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -736,7 +761,7 @@ endpoints:
         name: title
         description: ''
         required: false
-        example: excepturi
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -746,7 +771,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Id amet non velit odio eum.'
+        example: 'Sed odio sed maxime vel.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -756,16 +781,16 @@ endpoints:
         name: visible
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: excepturi
-      description: 'Id amet non velit odio eum.'
-      visible: false
+      title: est
+      description: 'Sed odio sed maxime vel.'
+      visible: true
     fileParameters: []
     responses:
       -
@@ -778,7 +803,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer VhEPDZa66gef4bvd8a15c3k'
+      - 'Bearer PkZ816ahg5Dv3fecdEa6V4b'
     controller: null
     method: null
     route: null
@@ -805,14 +830,14 @@ endpoints:
         name: id
         description: 'The ID of the book.'
         required: true
-        example: doloremque
+        example: possimus
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: doloremque
+      id: possimus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -829,7 +854,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer vfVd51aD8cb4akeEZghP636'
+      - 'Bearer h8aZd5aDkgev61f6Vb34EcP'
     controller: null
     method: null
     route: null
@@ -858,7 +883,7 @@ endpoints:
         name: q
         description: ''
         required: false
-        example: laboriosam
+        example: odio
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -868,7 +893,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: 7
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -878,22 +903,22 @@ endpoints:
         name: per_page
         description: ''
         required: false
-        example: 20
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      q: laboriosam
-      page: 7
-      per_page: 20
+      q: odio
+      page: 11
+      per_page: 3
     bodyParameters:
       q:
         name: q
         description: ''
         required: false
-        example: voluptas
+        example: occaecati
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -903,7 +928,7 @@ endpoints:
         name: per_page
         description: 'Must be at least 1.'
         required: false
-        example: 41
+        example: 48
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -913,16 +938,16 @@ endpoints:
         name: page
         description: 'Must be at least 1.'
         required: false
-        example: 9
+        example: 43
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      q: voluptas
-      per_page: 41
-      page: 9
+      q: occaecati
+      per_page: 48
+      page: 43
     fileParameters: []
     responses:
       -
@@ -952,7 +977,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3v8g6kd5c4ZEfD1VaehPab6'
+      - 'Bearer EavdhV8P6f5Zb3D1ke6cg4a'
     controller: null
     method: null
     route: null
@@ -983,7 +1008,7 @@ endpoints:
         name: title
         description: string
         required: false
-        example: vel
+        example: magnam
         type: required
         enumValues: []
         exampleWasSpecified: false
@@ -993,7 +1018,7 @@ endpoints:
         name: address
         description: ''
         required: false
-        example: quaerat
+        example: nemo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1003,16 +1028,16 @@ endpoints:
         name: visible
         description: boolean
         required: false
-        example: deleniti
+        example: molestiae
         type: required
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: vel
-      address: quaerat
-      visible: deleniti
+      title: magnam
+      address: nemo
+      visible: molestiae
     fileParameters: []
     responses:
       -
@@ -1033,7 +1058,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer v8Z543DEb1eg6aka6VfdchP'
+      - 'Bearer bh1a6cefvdE6Z853k4DVgaP'
     controller: null
     method: null
     route: null
@@ -1060,14 +1085,14 @@ endpoints:
         name: id
         description: 'The ID of the branch.'
         required: true
-        example: dolores
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: dolores
+      id: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1092,7 +1117,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Pgfa38kb4a1dD5c6VZh6vEe'
+      - 'Bearer b4a683Vh1gv6PEZcekDa5fd'
     controller: null
     method: null
     route: null
@@ -1120,14 +1145,14 @@ endpoints:
         name: id
         description: 'The ID of the branch.'
         required: true
-        example: qui
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: qui
+      id: voluptatum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1135,7 +1160,7 @@ endpoints:
         name: title
         description: ''
         required: false
-        example: tempore
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1145,7 +1170,7 @@ endpoints:
         name: address
         description: ''
         required: false
-        example: repellat
+        example: eveniet
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1162,8 +1187,8 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: tempore
-      address: repellat
+      title: qui
+      address: eveniet
       visible: true
     fileParameters: []
     responses:
@@ -1177,7 +1202,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer eb6816ZDvkE4cdV3Paa5ghf'
+      - 'Bearer 66eaDfab8vd4Z15ck3PVEgh'
     controller: null
     method: null
     route: null
@@ -1204,14 +1229,14 @@ endpoints:
         name: id
         description: 'The ID of the branch.'
         required: true
-        example: suscipit
+        example: quas
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: suscipit
+      id: quas
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1228,7 +1253,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer VehEgfbc1k4P6avD65a8Zd3'
+      - 'Bearer a5EVcfebhg3816vZak46DPd'
     controller: null
     method: null
     route: null
@@ -1243,7 +1268,10 @@ endpoints:
       subgroup: Reservation
       subgroupDescription: ''
       title: Complete
-      description: 'Only when reservation status = active'
+      description: |-
+        Confirm that the user returned the book
+
+        Only when reservation status = active
       authenticated: true
       custom: []
     headers:
@@ -1255,14 +1283,14 @@ endpoints:
         name: reservation_id
         description: 'The ID of the reservation.'
         required: true
-        example: et
+        example: rem
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      reservation_id: et
+      reservation_id: rem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1279,7 +1307,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer aPghcZ6d645VDek81bavEf3'
+      - 'Bearer dv6afkehE3bDc1VZag4P856'
     controller: null
     method: null
     route: null
@@ -1308,7 +1336,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: 9
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1318,21 +1346,21 @@ endpoints:
         name: per_page
         description: ''
         required: false
-        example: 3
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      page: 9
-      per_page: 3
+      page: 17
+      per_page: 14
     bodyParameters:
       q:
         name: q
         description: ''
         required: false
-        example: similique
+        example: nobis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1342,7 +1370,7 @@ endpoints:
         name: per_page
         description: 'Must be at least 1.'
         required: false
-        example: 85
+        example: 53
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1352,16 +1380,16 @@ endpoints:
         name: page
         description: 'Must be at least 1.'
         required: false
-        example: 77
+        example: 42
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      q: similique
-      per_page: 85
-      page: 77
+      q: nobis
+      per_page: 53
+      page: 42
     fileParameters: []
     responses:
       -
@@ -1411,7 +1439,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 68cva3kPgfZ4VaEhD6e1d5b'
+      - 'Bearer 84VEgDhv5bdePak6af6Z1c3'
     controller: null
     method: null
     route: null
@@ -1438,14 +1466,14 @@ endpoints:
         name: id
         description: 'The ID of the reservation.'
         required: true
-        example: nam
+        example: ea
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: nam
+      id: ea
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1489,7 +1517,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer k6ZPf64vVEcga13aD5hb8ed'
+      - 'Bearer av5E8Pf6DZbceVh3d46gak1'
     controller: null
     method: null
     route: null

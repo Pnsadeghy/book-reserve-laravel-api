@@ -32,7 +32,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: cummerata.chaya@example.com
+        example: katlyn.olson@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,15 +42,15 @@ endpoints:
         name: password
         description: 'minimum character length is 6'
         required: true
-        example: ZSwX4%Dw^xDJyR^S-N
+        example: '"Yyo4%yQ>^o"oMI=%}|'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: cummerata.chaya@example.com
-      password: ZSwX4%Dw^xDJyR^S-N
+      email: katlyn.olson@example.com
+      password: '"Yyo4%yQ>^o"oMI=%}|'
     fileParameters: []
     responses:
       -
@@ -100,7 +100,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: qui
+        example: quisquam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -110,7 +110,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: pagac.kathryn@example.org
+        example: btreutel@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -120,7 +120,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: '~CdUV!,ZT=Rme;qaQ'
+        example: "tJ'YhkBoJSo"
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -130,17 +130,17 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: dicta
+        example: quasi
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: qui
-      email: pagac.kathryn@example.org
-      password: '~CdUV!,ZT=Rme;qaQ'
-      password_confirmation: dicta
+      name: quisquam
+      email: btreutel@example.net
+      password: "tJ'YhkBoJSo"
+      password_confirmation: quasi
     fileParameters: []
     responses:
       -
@@ -194,7 +194,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4Dhg6Pfva5Zeb6kE83cVa1d'
+      - 'Bearer a6EdD53V1gcefvakZhbP846'
     controller: null
     method: null
     route: null
