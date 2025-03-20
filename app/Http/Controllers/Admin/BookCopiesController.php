@@ -81,8 +81,6 @@ class BookCopiesController extends Controller
      */
     public function update(AdminBookCopyUpdateRequest $request, BookCopy $bookCopy): JsonResponse
     {
-        Log::info($bookCopy->id);
-        Log::info(json_encode($request->validated()));
         $this->repository->update($bookCopy, $request->validated());
 
         return response()->json([]);
