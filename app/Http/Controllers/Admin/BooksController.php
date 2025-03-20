@@ -96,7 +96,8 @@ class BooksController extends Controller
      */
     public function destroy(Book $book): Response
     {
-        // TODO we have a better logic for this action when book have reservation, for now we just use soft delete
+        // TODO we need a better logic for this action when book have reservation, for now we throw an error
+
         $this->repository->delete($book);
 
         return response()->noContent();

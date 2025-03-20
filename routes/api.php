@@ -23,7 +23,7 @@ Route::prefix('user')
 Route::prefix('admin')
     ->name('admin.')
     ->middleware(['auth:sanctum', 'role:admin'])->group(function () {
-        Route::apiResource('books.copies', \App\Http\Controllers\Admin\BookCopiesController::class)->shallow();
+        Route::apiResource('books.bookCopies', \App\Http\Controllers\Admin\BookCopiesController::class)->shallow();
         Route::apiResource('books', \App\Http\Controllers\Admin\BooksController::class);
         Route::apiResource('branches', \App\Http\Controllers\Admin\BranchesController::class);
     });

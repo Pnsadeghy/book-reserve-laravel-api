@@ -12,6 +12,7 @@ use App\Models\Book;
 use App\Models\BookCopy;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @group Admin
@@ -80,6 +81,8 @@ class BookCopiesController extends Controller
      */
     public function update(AdminBookCopyUpdateRequest $request, BookCopy $bookCopy): JsonResponse
     {
+        Log::info($bookCopy->id);
+        Log::info(json_encode($request->validated()));
         $this->repository->update($bookCopy, $request->validated());
 
         return response()->json([]);

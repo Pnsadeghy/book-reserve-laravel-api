@@ -29,13 +29,13 @@ class AdminBookCopyUpdateRequest extends FormRequest
 
         return [
             'title' => [
-                'required', 'string',
+                'sometimes', 'string',
                 Rule::unique('book_copies', 'title')->ignore($id)->where('book_id', $book_id),
             ],
-            'visible' => 'required|boolean',
-            'branch_id' => 'required|uuid|exists:branches,id',
-            'status' => ['required', Rule::in(BookCopyStatusEnum::availableValues())],
-            'condition' => ['required', Rule::in(BookCopyConditionEnum::values())],
+            'visible' => 'sometimes|boolean',
+            'branch_id' => 'sometimes|uuid|exists:branches,id',
+            'status' => ['sometimes', Rule::in(BookCopyStatusEnum::availableValues())],
+            'condition' => ['sometimes', Rule::in(BookCopyConditionEnum::values())],
         ];
     }
 }

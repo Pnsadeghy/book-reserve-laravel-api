@@ -96,7 +96,7 @@ class BranchesController extends Controller
      */
     public function destroy(Branch $branch): Response
     {
-        // TODO we have a better logic for this action when branch have copies, for now we just use soft delete
+        // TODO we need a better logic for this action when branch have copies, for now we throw an error
         $this->repository->delete($branch);
 
         return response()->noContent();

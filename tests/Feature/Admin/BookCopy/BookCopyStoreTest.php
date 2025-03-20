@@ -16,7 +16,7 @@ class BookCopyStoreTest extends TestCase
 
     private function getUrl(string $id): string
     {
-        return '/api/admin/books/'.$id.'/copies';
+        return '/api/admin/books/'.$id.'/bookCopies';
     }
 
     public function test_store_successfully()
