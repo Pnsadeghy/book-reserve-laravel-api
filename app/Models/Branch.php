@@ -34,5 +34,10 @@ class Branch extends Model
     {
         return $this->hasMany(BookCopy::class);
     }
+
+    public function reservations(): HasMany
+    {
+        return $this->hasMany(Reservation::class);
+    }
     // endregion
 }

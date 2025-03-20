@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Book extends Model
 {
@@ -44,6 +45,11 @@ class Book extends Model
     public function copies(): HasMany
     {
         return $this->hasMany(BookCopy::class);
+    }
+
+    public function reservations(): HasManyThrough
+    {
+        return $this->hasManyThrough(Reservation::class, BookCopy::class);
     }
     // endregion
 }

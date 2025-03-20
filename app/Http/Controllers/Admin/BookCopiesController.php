@@ -12,7 +12,6 @@ use App\Models\Book;
 use App\Models\BookCopy;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
 
 /**
  * @group Admin
