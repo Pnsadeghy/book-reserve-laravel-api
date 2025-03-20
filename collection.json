@@ -1,0 +1,1166 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Book Reservation Portal",
+        "_postman_id": "a8439355-1928-41d6-94f4-53ad0a3e98af",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Admin",
+            "description": "",
+            "item": [
+                {
+                    "name": "Book copies",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "All book copies",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/books\/:book_id\/bookCopies",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/books\/:book_id\/bookCopies",
+                                    "variable": [
+                                        {
+                                            "id": "book_id",
+                                            "key": "book_id",
+                                            "value": "et",
+                                            "description": "The ID of the book."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"q\":\"porro\",\"per_page\":40,\"page\":68}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "[\n    {\n        \"id\": \"uuid\",\n        \"title\": \"Title\",\n        \"visible\": true,\n        \"branch_id\": \"Branch ID\",\n        \"status\": \"available\",\n        \"condition\": \"good\",\n        \"special\": true,\n        \"created_at\": \"date\",\n        \"updated_at\": \"date\"\n    }\n]\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Store new book copy",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/books\/:book_id\/bookCopies",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/books\/:book_id\/bookCopies",
+                                    "variable": [
+                                        {
+                                            "id": "book_id",
+                                            "key": "book_id",
+                                            "value": "quis",
+                                            "description": "The ID of the book."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"title\":\"molestias\",\"visible\":\"saepe\",\"special\":\"voluptatum\",\"branch_id\":\"enim\",\"status\":\"nemo\",\"condition\":\"aperiam\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 201,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"title\": \"Title\",\n    \"visible\": true,\n    \"branch_id\": \"Branch ID\",\n    \"status\": \"available\",\n    \"condition\": \"good\",\n    \"special\": true,\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Show book copy",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/bookCopies\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/bookCopies\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "qui",
+                                            "description": "The ID of the bookCopy."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"title\": \"Title\",\n    \"visible\": true,\n    \"branch_id\": \"Branch ID\",\n    \"status\": \"available\",\n    \"condition\": \"good\",\n    \"special\": true,\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update book copy",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/bookCopies\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/bookCopies\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "ab",
+                                            "description": "The ID of the bookCopy."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"title\":\"enim\",\"visible\":false,\"special\":true,\"status\":\"iste\",\"condition\":\"porro\",\"branch_id\":\"in\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Destroy book copy",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/bookCopies\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/bookCopies\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "iste",
+                                            "description": "The ID of the bookCopy."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 204,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Book",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "All books",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/books",
+                                    "query": [
+                                        {
+                                            "key": "q",
+                                            "value": "dolores",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page",
+                                            "value": "18",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "per_page",
+                                            "value": "11",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/admin\/books?q=dolores&page=18&per_page=11"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"q\":\"est\",\"per_page\":3,\"page\":24}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"data\": [\n        {\n            \"id\": \"uuid\",\n            \"title\": \"Title\",\n            \"description\": null,\n            \"visible\": true,\n            \"available\": true,\n            \"created_at\": \"date\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"total\": 2\n    }\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Store",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/books",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/books"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"title\":\"voluptas\",\"description\":\"Vitae aut porro fuga nihil voluptas molestias quia ea.\",\"visible\":\"fugit\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 201,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"title\": \"Title\",\n    \"description\": null,\n    \"visible\": true,\n    \"available\": true,\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Show",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/books\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/books\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "sequi",
+                                            "description": "The ID of the book."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"title\": \"Title\",\n    \"description\": null,\n    \"visible\": true,\n    \"available\": true,\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/books\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/books\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "architecto",
+                                            "description": "The ID of the book."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"title\":\"est\",\"description\":\"Sed odio sed maxime vel.\",\"visible\":true}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Destroy",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/books\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/books\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "possimus",
+                                            "description": "The ID of the book."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 204,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "All branches",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/branches",
+                                    "query": [
+                                        {
+                                            "key": "q",
+                                            "value": "odio",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page",
+                                            "value": "11",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "per_page",
+                                            "value": "3",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/admin\/branches?q=odio&page=11&per_page=3"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"q\":\"occaecati\",\"per_page\":48,\"page\":43}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"data\": [\n        {\n            \"id\": \"uuid\",\n            \"title\": \"Title\",\n            \"address\": null,\n            \"visible\": true,\n            \"created_at\": \"date\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"total\": 2\n    }\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Store",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/branches",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/branches"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"title\":\"magnam\",\"address\":\"nemo\",\"visible\":\"molestiae\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 201,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"title\": \"Title\",\n    \"address\": null,\n    \"visible\": true,\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Show",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/branches\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/branches\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "et",
+                                            "description": "The ID of the branch."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"title\": \"Title\",\n    \"address\": null,\n    \"visible\": true,\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/branches\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/branches\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "voluptatum",
+                                            "description": "The ID of the branch."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"title\":\"qui\",\"address\":\"eveniet\",\"visible\":true}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Destroy",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/branches\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/branches\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "quas",
+                                            "description": "The ID of the branch."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 204,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Reservation",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Complete",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/reservations\/:reservation_id\/complete",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/reservations\/:reservation_id\/complete",
+                                    "variable": [
+                                        {
+                                            "id": "reservation_id",
+                                            "key": "reservation_id",
+                                            "value": "rem",
+                                            "description": "The ID of the reservation."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Confirm that the user returned the book\n\nOnly when reservation status = active"
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "All reservations",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/reservations",
+                                    "query": [
+                                        {
+                                            "key": "page",
+                                            "value": "17",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "per_page",
+                                            "value": "14",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/admin\/reservations?page=17&per_page=14"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"q\":\"nobis\",\"per_page\":53,\"page\":42}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"data\": [\n        {\n            \"id\": \"uuid\",\n            \"user\": {\n                \"id\": \"uuid\",\n                \"name\": \"User name\"\n            },\n            \"book\": {\n                \"id\": \"uuid\",\n                \"title\": \"Title\"\n            },\n            \"copy\": {\n                \"id\": \"uuid\",\n                \"title\": \"Title\"\n            },\n            \"branch\": {\n                \"id\": \"uuid\",\n                \"title\": \"Title\",\n                \"address\": \"Address\"\n            },\n            \"days_reserved\": 5,\n            \"status\": \"active\",\n            \"started_at\": \"date\",\n            \"finished_at\": \"date\",\n            \"expiration_date\": \"date\",\n            \"created_at\": \"date\",\n            \"updated_at\": \"date\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"total\": 2\n    }\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Show",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/admin\/reservations\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/admin\/reservations\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "ea",
+                                            "description": "The ID of the reservation."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"user\": {\n        \"id\": \"uuid\",\n        \"name\": \"User name\"\n    },\n    \"book\": {\n        \"id\": \"uuid\",\n        \"title\": \"Title\"\n    },\n    \"copy\": {\n        \"id\": \"uuid\",\n        \"title\": \"Title\"\n    },\n    \"branch\": {\n        \"id\": \"uuid\",\n        \"title\": \"Title\",\n        \"address\": \"Address\"\n    },\n    \"days_reserved\": 5,\n    \"status\": \"active\",\n    \"started_at\": \"date\",\n    \"finished_at\": \"date\",\n    \"expiration_date\": \"date\",\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "description": "\nAPI endpoints for managing auth",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"katlyn.olson@example.com\",\"password\":\"\\\"Yyo4%yQ>^o\\\"oMI=%}|\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"token_type\": \"Bearer\",\n    \"access_token\": \"Access token\",\n    \"user\": {\n        \"email\": \"user@email.com\",\n        \"name\": \"User name\"\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"quisquam\",\"email\":\"btreutel@example.net\",\"password\":\"tJ'YhkBoJSo\",\"password_confirmation\":\"quasi\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"token_type\": \"Bearer\",\n    \"access_token\": \"Access token\",\n    \"user\": {\n        \"email\": \"user@email.com\",\n        \"name\": \"User name\"\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "description": "",
+            "item": [
+                {
+                    "name": "Book",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "All books",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/books",
+                                    "query": [
+                                        {
+                                            "key": "q",
+                                            "value": "quod",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page",
+                                            "value": "20",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "per_page",
+                                            "value": "19",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/user\/books?q=quod&page=20&per_page=19"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"q\":\"repellat\",\"per_page\":60,\"page\":42}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"data\": [\n        {\n            \"id\": \"uuid\",\n            \"title\": \"Title\",\n            \"description\": null,\n            \"created_at\": \"date\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"total\": 2\n    }\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get book information",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/books\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/books\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "est",
+                                            "description": "The ID of the book."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"title\": \"Title\",\n    \"description\": \"Description\",\n    \"available\": true,\n    \"copies\": [\n        {\n            \"id\": \"uuid\",\n            \"title\": \"Title\",\n            \"status\": \"available\",\n            \"special\": false,\n            \"branch\": {\n                \"id\": \"uuid\",\n                \"title\": \"Title\",\n                \"address\": \"Address\"\n            }\n        }\n    ]\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Reservation",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Cancel",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/reservations\/:reservation_id\/cancel",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/reservations\/:reservation_id\/cancel",
+                                    "variable": [
+                                        {
+                                            "id": "reservation_id",
+                                            "key": "reservation_id",
+                                            "value": "laboriosam",
+                                            "description": "The ID of the reservation."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Only when reservation status = pending"
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "All reservations",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/reservations",
+                                    "query": [
+                                        {
+                                            "key": "page",
+                                            "value": "11",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "per_page",
+                                            "value": "1",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/user\/reservations?page=11&per_page=1"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"q\":\"sed\",\"per_page\":27,\"page\":64}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"data\": [\n        {\n            \"id\": \"uuid\",\n            \"user\": {\n                \"id\": \"uuid\",\n                \"name\": \"User name\"\n            },\n            \"book\": {\n                \"id\": \"uuid\",\n                \"title\": \"Title\"\n            },\n            \"copy\": {\n                \"id\": \"uuid\",\n                \"title\": \"Title\"\n            },\n            \"branch\": {\n                \"id\": \"uuid\",\n                \"title\": \"Title\",\n                \"address\": \"Address\"\n            },\n            \"days_reserved\": 5,\n            \"status\": \"active\",\n            \"started_at\": \"date\",\n            \"finished_at\": \"date\",\n            \"expiration_date\": \"date\",\n            \"created_at\": \"date\",\n            \"updated_at\": \"date\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"total\": 2\n    }\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Show",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/reservations\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/reservations\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "laudantium",
+                                            "description": "The ID of the reservation."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n    \"id\": \"uuid\",\n    \"user\": {\n        \"id\": \"uuid\",\n        \"name\": \"User name\"\n    },\n    \"book\": {\n        \"id\": \"uuid\",\n        \"title\": \"Title\"\n    },\n    \"copy\": {\n        \"id\": \"uuid\",\n        \"title\": \"Title\"\n    },\n    \"branch\": {\n        \"id\": \"uuid\",\n        \"title\": \"Title\",\n        \"address\": \"Address\"\n    },\n    \"days_reserved\": 5,\n    \"status\": \"active\",\n    \"started_at\": \"date\",\n    \"finished_at\": \"date\",\n    \"expiration_date\": \"date\",\n    \"created_at\": \"date\",\n    \"updated_at\": \"date\"\n}\n",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
+    }
+}
