@@ -12,7 +12,7 @@ services:
         networks:
             - app_network
         depends_on:
-            - rabbitmq
+            - redis
             - mysql
 
     nginx:
@@ -27,36 +27,48 @@ services:
         depends_on:
             - app
 
-    worker:
+    queue:
         build:
             context: .
             dockerfile: .deploy/Dockerfile.worker
         volumes:
             - .:/var/www/html
-        command: php artisan queue:work rabbitmq --tries=3 --timeout=60
-        environment:
-            - APP_ENV=production
+        command: php artisan queue:work --tries=3
+        depends_on:
+            - app
+            - redis
+            - mysql
         networks:
             - app_network
+        healthcheck:
+            test: ["CMD", "pgrep", "-f", "php artisan queue:work"]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+
+    schedule:
+        build:
+            context: .
+            dockerfile: .deploy/Dockerfile.worker
+        volumes:
+            - .:/var/www/html
+        command: php artisan schedule:work
         depends_on:
-            - rabbitmq
+            - app
             - mysql
+        networks:
+            - app_network
+        healthcheck:
+            test: [ "CMD", "pgrep", "-f", "php artisan schedule:work" ]
+            interval: 30s
+            timeout: 10s
+            retries: 3
 
     redis:
         image: redis:latest
         environment:
             REDIS_PASSWORD: ${REDIS_PASSWORD}
         command: redis-server --requirepass ${REDIS_PASSWORD}
-        networks:
-            - app_network
-
-    rabbitmq:
-        image: rabbitmq:3-management
-        ports:
-            - "5672:5672"
-        environment:
-            - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
-            - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
         networks:
             - app_network
 

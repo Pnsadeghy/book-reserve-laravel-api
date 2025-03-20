@@ -20,4 +20,3 @@ RUN chmod +x /usr/local/bin/entrypoint.worker.sh
 WORKDIR /var/www/html
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.worker.sh"]
-CMD ["php", "artisan", "queue:work", "rabbitmq", "--tries=3"]
