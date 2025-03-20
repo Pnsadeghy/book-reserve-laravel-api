@@ -97,6 +97,8 @@ class BranchesController extends Controller
     public function destroy(Branch $branch): Response
     {
         // TODO we need a better logic for this action when branch have copies, for now we throw an error
+        abort_if($branch->copies()->exists(), 403);
+
         $this->repository->delete($branch);
 
         return response()->noContent();
