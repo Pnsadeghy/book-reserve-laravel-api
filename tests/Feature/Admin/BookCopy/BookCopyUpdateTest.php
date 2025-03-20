@@ -61,4 +61,6 @@ class BookCopyUpdateTest extends TestCase
             'condition' => BookCopyConditionEnum::Worn,
         ]);
     }
+
+    // TODO Write test: can have effect on book is_available column
 }
