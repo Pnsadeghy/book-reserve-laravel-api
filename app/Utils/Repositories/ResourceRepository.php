@@ -22,6 +22,8 @@ class ResourceRepository implements IResourceRepository
 
     protected array $searchProperties;
 
+    protected array $requestPropertiesColumns;
+
     public function __construct()
     {
         $this->boot();
@@ -115,6 +117,8 @@ class ResourceRepository implements IResourceRepository
 
     public function store(array $data): Model
     {
+        $this->checkRequestData($data);
+
         $modelInstance = new $this->modelClass;
         foreach ($data as $key => $value) {
             $modelInstance->{$key} = $value;
@@ -126,6 +130,8 @@ class ResourceRepository implements IResourceRepository
 
     public function update(Model|string $model, array $data): Model
     {
+        $this->checkRequestData($data);
+
         $model = $this->find($model);
         foreach ($data as $key => $value) {
             $model->{$key} = $value;
@@ -195,5 +201,15 @@ class ResourceRepository implements IResourceRepository
     protected function getModel(): Builder
     {
         return $this->model;
+    }
+
+    protected function checkRequestData(array &$data): void
+    {
+        foreach ($this->requestPropertiesColumns as $key => $column) {
+            if (array_key_exists($key, $data)) {
+                $data[$column] = $data[$key];
+                unset($data[$key]);
+            }
+        }
     }
 }
