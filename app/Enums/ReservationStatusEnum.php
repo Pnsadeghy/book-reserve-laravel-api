@@ -24,4 +24,13 @@ enum ReservationStatusEnum
             self::NotReturned,
         ];
     }
+
+    public static function finishValues(): array
+    {
+        return [
+            self::Completed,
+            self::Canceled,
+            self::NotReturned,
+        ];
+    }
 }
