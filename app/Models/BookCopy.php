@@ -4,13 +4,17 @@ namespace App\Models;
 
 use App\Enums\BookCopyConditionEnum;
 use App\Enums\BookCopyStatusEnum;
+use App\Observers\BookCopyObserver;
 use App\Traits\VisibleScopeTrait;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+#[ObservedBy([BookCopyObserver::class])]
 class BookCopy extends Model
 {
     use HasFactory, HasUuids, VisibleScopeTrait;
@@ -34,6 +38,13 @@ class BookCopy extends Model
             'is_visible' => 'boolean',
         ];
     }
+
+    // region Scopes
+    public function scopeAvailable(Builder $query): Builder
+    {
+        return $query->where('status', BookCopyStatusEnum::Available);
+    }
+    // endregion
 
     // region Relations
     public function book(): BelongsTo
