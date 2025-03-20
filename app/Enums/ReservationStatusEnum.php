@@ -11,4 +11,6 @@ enum ReservationStatusEnum
     public const Completed = 'completed';
 
     public const Canceled = 'cancelled';
+
+    public const NotReturned = 'not_returned';
 }

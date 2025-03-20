@@ -72,8 +72,8 @@ class BookCopiesController extends Controller
      *
      * @bodyParam title
      * @bodyParam condition values: good,worn,damaged - Only when the copy is not reserved
-     * @bodyParam status values: available,under_repair,lost
-     * @bodyParam branch_id Only when the copy is not reserved
+     * @bodyParam status values: available,under_repair - Only when the copy is not reserved
+     * @bodyParam branch_id - Only when the copy is not reserved
      * @bodyParam visible boolean
      *
      * @response 200

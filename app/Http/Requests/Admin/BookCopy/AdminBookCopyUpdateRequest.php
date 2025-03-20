@@ -24,18 +24,25 @@ class AdminBookCopyUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('bookCopy')->id ?? null;
-        $book_id = $this->route('bookCopy')->book_id ?? null;
+        $model = $this->route('bookCopy');
+        $id = $model->id ?? null;
+        $book_id = $model->book_id ?? null;
+        $status = $model->status ?? null;
 
-        return [
+        $rules = [
             'title' => [
                 'sometimes', 'string',
                 Rule::unique('book_copies', 'title')->ignore($id)->where('book_id', $book_id),
             ],
             'visible' => 'sometimes|boolean',
-            'branch_id' => 'sometimes|uuid|exists:branches,id',
-            'status' => ['sometimes', Rule::in(BookCopyStatusEnum::availableValues())],
-            'condition' => ['sometimes', Rule::in(BookCopyConditionEnum::values())],
         ];
+
+        if ($status !== BookCopyStatusEnum::Reserved) {
+            $rules['status'] = ['sometimes', Rule::in(BookCopyStatusEnum::availableValues())];
+            $rules['condition'] = ['sometimes', Rule::in(BookCopyConditionEnum::values())];
+            $rules['branch_id'] = 'sometimes|uuid|exists:branches,id';
+        }
+
+        return $rules;
     }
 }
