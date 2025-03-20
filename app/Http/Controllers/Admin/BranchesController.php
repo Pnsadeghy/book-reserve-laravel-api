@@ -13,6 +13,7 @@ use App\Models\Branch;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * @group Admin
@@ -96,8 +97,7 @@ class BranchesController extends Controller
      */
     public function destroy(Branch $branch): Response
     {
-        // TODO we need a better logic for this action when branch have copies, for now we throw an error
-        abort_if($branch->copies()->exists(), 403);
+        Gate::authorize('delete', $branch);
 
         $this->repository->delete($branch);
 
