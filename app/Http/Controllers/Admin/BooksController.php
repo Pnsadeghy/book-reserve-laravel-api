@@ -13,6 +13,7 @@ use App\Models\Book;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * @group Admin
@@ -96,7 +97,7 @@ class BooksController extends Controller
      */
     public function destroy(Book $book): Response
     {
-        // TODO we need a better logic for this action when book have reservation, for now we throw an error
+        Gate::authorize('delete', $book);
 
         $this->repository->delete($book);
 
